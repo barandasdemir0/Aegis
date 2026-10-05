@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\Aegis.Resilience.Distributed.Abstractions\Aegis.Resilience.Distributed.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" Version="3.2.0" />
+    <InternalsVisibleTo Include="Aegis.Tests" Key="$(AegisPublicKey)" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

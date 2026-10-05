@@ -1,0 +1,16 @@
+# Native AOT doğrulaması: Aegis kütüphaneleri Native AOT ile derlenmiş bir uygulamada çalışır mı?
+# 1) SDK imajında AOT yayımı: trim/AOT uyarısı (IL2xxx/IL3xxx) derlemeyi kırar (IlcTreatWarningsAsErrors).
+# 2) Çıkan ikili .NET çalışma zamanı İÇERMEYEN runtime-deps imajında koşar: gerçekten yerel koddur.
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends clang zlib1g-dev \
+ && rm -rf /var/lib/apt/lists/*
+ENV NUGET_PACKAGES=/nuget
+WORKDIR /repo
+COPY . .
+RUN dotnet publish tests/Aegis.AotSmokeTest/Aegis.AotSmokeTest.csproj -c Release -r linux-x64 -o /app -nologo
+
+FROM mcr.microsoft.com/dotnet/runtime-deps:10.0
+COPY --from=build /app/Aegis.AotSmokeTest /app/Aegis.AotSmokeTest
+USER $APP_UID
+ENTRYPOINT ["/app/Aegis.AotSmokeTest"]

@@ -1,0 +1,9 @@
+#nullable enable
+Aegis.Resilience.Grpc.AegisOutlierDetectionLoadBalancerFactory
+Aegis.Resilience.Grpc.AegisOutlierDetectionLoadBalancerFactory.AegisOutlierDetectionLoadBalancerFactory(Aegis.Resilience.Grpc.AegisOutlierDetector! detector) -> void
+Aegis.Resilience.Grpc.AegisOutlierStatusHandler
+Aegis.Resilience.Grpc.AegisOutlierStatusHandler.AegisOutlierStatusHandler(Aegis.Resilience.Grpc.AegisOutlierDetector! detector) -> void
+const Aegis.Resilience.Grpc.AegisOutlierDetectionLoadBalancerFactory.PolicyName = "aegis_outlier_detection" -> string!
+override Aegis.Resilience.Grpc.AegisOutlierDetectionLoadBalancerFactory.Create(Grpc.Net.Client.Balancer.LoadBalancerOptions! options) -> Grpc.Net.Client.Balancer.LoadBalancer!
+override Aegis.Resilience.Grpc.AegisOutlierDetectionLoadBalancerFactory.Name.get -> string!
+static Aegis.Resilience.Grpc.AegisGrpcClientBuilderExtensions.AddAegisGrpcOutlierDetection(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Grpc.AegisOutlierDetectionOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!

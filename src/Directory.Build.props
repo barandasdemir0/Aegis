@@ -1,0 +1,70 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      Çoklu hedefleme (Polly ve Microsoft.Extensions.Resilience ile aynı kapsam):
+      - net8.0 / net9.0 / net10.0: tam performans yolu (TimeProvider, CTS havuzu, AOT analizörleri).
+      - netstandard2.0 / net462: .NET Framework 4.6.2+ ve diğer netstandard platformları. Eksik BCL API'leri
+        src/Shared/Polyfills altındaki dahili polyfill'lerle (C# 14 extension üyeleri) ve resmi Microsoft.Bcl.*
+        paketleriyle karşılanır; kaynak kod iki dünyada aynıdır, #if yalnızca davranış farkı olan yerlerde kullanılır.
+      ASP.NET Core'a bağlı Dashboard yalnızca .NET 8+ hedefler (kendi csproj'unda).
+    -->
+    <TargetFrameworks>net8.0;net9.0;net10.0;netstandard2.0;net462</TargetFrameworks>
+    <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>2.0.0</Version>
+    <Authors>Aegis Contributors</Authors>
+    <Company>Aegis</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>resilience;polly;fault-tolerance;circuit-breaker;retry;rate-limiter;hedging;chaos;net10;csharp14</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Description>Kurumsal seviyede, sıfır-tahsisat (zero-allocation) hedefli, modern .NET 10 ve C# 14 dayanıklılık (resilience) ve arıza toleransı kütüphanesi.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <!--
+      1591: Tüm public üyelerde XML yorumu zorunlu değildir.
+      CA1068: AegisContext API'sinde CancellationToken bilinçli olarak ilk parametredir
+              (pipelineName opsiyoneldir); sırayı değiştirmek kırıcı (breaking) API değişikliği olurdu.
+    -->
+    <NoWarn>$(NoWarn);1591;CA1068</NoWarn>
+
+    <!-- Kütüphane kalite kapıları: uyarılar hata sayılır, API analizörleri açıktır -->
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+
+    <!-- Hata ayıklanabilir ve yeniden üretilebilir (deterministic) paketler -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <RepositoryType>git</RepositoryType>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <!--
+    Strong naming (Polly ve Microsoft paketleri gibi): imzalı derlemeler, strong name zorunlu kurumsal ortamlarda ve
+    imzalı projelerden kullanılabilir. Anahtar depodadır (açık kaynak projelerde standart uygulama: imza kimlik
+    doğrulaması değil, derleme kimliğidir). InternalsVisibleTo hedefleri de aynı anahtarla imzalanmalıdır.
+  -->
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)..\Aegis.snk</AssemblyOriginatorKeyFile>
+    <AegisPublicKey>00240000048000009400000006020000002400005253413100040000010001005571aa88a093ca21566056ed9cece2310ab074e55580d428bbf4671d33e9db206ad10258d1870a540f187c3768a37ddba8642a375614fff4371099f80dc1c49ed1bbdd063ed6079c072953f38fc7161c8eda7673c3bb5bb5c817beb0555af98dec3fc9f7178f882376ea82d20aed5346936d63630b92ebdbf0b1dbdabe231caf</AegisPublicKey>
+  </PropertyGroup>
+
+  <!--
+    Native AOT ve trimming: .NET 8+ hedeflerinde trim/AOT/tek dosya analizörleri açıktır; uyarılar hata sayılır
+    (TreatWarningsAsErrors). AOT ile uyumsuz olan az sayıdaki API (ör. DispatchProxy tabanlı AOP) açıkça
+    [RequiresDynamicCode] / [RequiresUnreferencedCode] ile işaretlidir. Doğrulama: tests/Aegis.AotSmokeTest.
+  -->
+  <PropertyGroup Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\README.md" Pack="true" PackagePath="\" Condition="Exists('$(MSBuildThisFileDirectory)..\README.md')" />
+    <None Include="$(MSBuildThisFileDirectory)..\LICENSE" Pack="true" PackagePath="\" Condition="Exists('$(MSBuildThisFileDirectory)..\LICENSE')" />
+  </ItemGroup>
+</Project>

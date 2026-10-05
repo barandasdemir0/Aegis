@@ -1,0 +1,128 @@
+#nullable enable
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.CircuitKey.get -> string?
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.CircuitKey.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.DistributedCircuitBreakerOptions() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions!>?
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.OptionsProvider.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.StateCacheDuration.get -> System.TimeSpan
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.StateCacheDuration.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions.Validate() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.DistributedCircuitBreakerStrategy(Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore! stateStore, Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions! options) -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.IsSharedStateAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.IsolateAsync(string! circuitKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.LastKnownState.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.ResetAsync(string! circuitKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.DistributedPipelineBuilderExtensions
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm.FixedWindow = 1 -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm.SlidingWindow = 2 -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm.TokenBucket = 0 -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision.DistributedRateLimitDecision() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision.DistributedRateLimitDecision(bool isAcquired, int remaining, System.TimeSpan? retryAfter) -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision.IsAcquired.get -> bool
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision.Remaining.get -> int
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.Algorithm.get -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.DistributedRateLimitRule() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.DistributedRateLimitRule(Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm algorithm, int permitLimit, System.TimeSpan window, int tokensPerPeriod) -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.PermitLimit.get -> int
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.StateLifetime.get -> System.TimeSpan
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.TokensPerPeriod.get -> int
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule.Window.get -> System.TimeSpan
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.Algorithm.get -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.Algorithm.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.DistributedRateLimiterOptions() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.LimiterKey.get -> string?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.LimiterKey.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.OnRejected.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions!>?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.OptionsProvider.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.PartitionKeySelector.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, string?>?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.PartitionKeySelector.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.PermitLimit.get -> int
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.PermitLimit.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.TokensPerPeriod.get -> int?
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.TokensPerPeriod.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.Validate() -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.Window.get -> System.TimeSpan
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions.Window.set -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterStrategy
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterStrategy.DistributedRateLimiterStrategy(Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore! store, Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions! options) -> void
+Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterStrategy.IsSharedStateAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.GetStateAsync(string! circuitKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState>
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.IsAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.RecordResultAsync(string! circuitKey, bool isSuccess, System.TimeSpan samplingDuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<(int SuccessCount, int FailureCount)>
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.ReleaseProbeAsync(string! circuitKey, string! ownerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.SetStateAsync(string! circuitKey, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState state, System.TimeSpan ttl, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore.TryAcquireProbeAsync(string! circuitKey, string! ownerId, System.TimeSpan lease, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<bool>
+Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore
+Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore.IsAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore.TryAcquireAsync(string! key, Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule rule, int permitCount, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision>
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.GetStateAsync(string! circuitKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState>
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.InMemoryCircuitBreakerStateStore() -> void
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.IsAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.RecordResultAsync(string! circuitKey, bool isSuccess, System.TimeSpan samplingDuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<(int SuccessCount, int FailureCount)>
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.ReleaseProbeAsync(string! circuitKey, string! ownerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.SetStateAsync(string! circuitKey, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState state, System.TimeSpan ttl, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Distributed.Abstractions.InMemoryCircuitBreakerStateStore.TryAcquireProbeAsync(string! circuitKey, string! ownerId, System.TimeSpan lease, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask<bool>
+Aegis.Resilience.Distributed.Abstractions.InMemoryDistributedRateLimitStore
+Aegis.Resilience.Distributed.Abstractions.InMemoryDistributedRateLimitStore.InMemoryDistributedRateLimitStore(System.TimeProvider? timeProvider = null) -> void
+Aegis.Resilience.Distributed.Abstractions.InMemoryDistributedRateLimitStore.IsAvailable.get -> bool
+Aegis.Resilience.Distributed.Abstractions.InMemoryDistributedRateLimitStore.TryAcquireAsync(string! key, Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitRule rule, int permitCount, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitDecision>
+Aegis.Resilience.Distributed.Abstractions.InboundEndpointPattern
+Aegis.Resilience.Distributed.Abstractions.InboundEndpointPattern.Matches(string! method, string! path) -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundIpRule
+Aegis.Resilience.Distributed.Abstractions.InboundIpRule.Contains(System.Net.IPAddress! address) -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundIpRule.InboundIpRule() -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.InboundRateLimitDecision() -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.InboundRateLimitDecision(bool isAllowed, TRule? rule, int remaining, System.TimeSpan? retryAfter) -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.IsAllowed.get -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.Remaining.get -> int
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule>.Rule.get -> TRule?
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitEngine<TRule>
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitEngine<TRule>.AcquireAsync(Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore! store, string! method, string! path, string! partitionKey, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Distributed.Abstractions.InboundRateLimitDecision<TRule!>>
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitEngine<TRule>.HasRules.get -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitEngine<TRule>.InboundRateLimitEngine(System.Collections.Generic.IEnumerable<TRule!>! rules, Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase! options) -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitEngine<TRule>.IsExempt(string! method, string! path, string! partitionKey, System.Net.IPAddress? clientAddress) -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.ClientWhitelist.get -> System.Collections.Generic.List<string!>!
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.ClientWhitelist.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.EmitRateLimitHeaders.get -> bool
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.EmitRateLimitHeaders.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.EndpointWhitelist.get -> System.Collections.Generic.List<string!>!
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.EndpointWhitelist.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.InboundRateLimitOptionsBase() -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.IpWhitelist.get -> System.Collections.Generic.List<string!>!
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.IpWhitelist.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.KeyPrefix.get -> string!
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.KeyPrefix.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitOptionsBase.ValidateRules(System.Collections.Generic.IEnumerable<Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule!>! rules, string! optionsName) -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Algorithm.get -> Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Algorithm.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Endpoint.get -> string!
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Endpoint.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.InboundRateLimitRule() -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Limit.get -> int
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Limit.set -> void
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Period.get -> System.TimeSpan
+Aegis.Resilience.Distributed.Abstractions.InboundRateLimitRule.Period.set -> void
+override Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.Name.get -> string!
+override Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerStrategy.Options.get -> object?
+override Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterStrategy.Name.get -> string!
+override Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterStrategy.Options.get -> object?
+static Aegis.Resilience.Distributed.Abstractions.DistributedPipelineBuilderExtensions.AddDistributedCircuitBreaker(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore! stateStore, Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Distributed.Abstractions.DistributedPipelineBuilderExtensions.AddDistributedCircuitBreaker(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Distributed.Abstractions.ICircuitBreakerStateStore! stateStore, System.Action<Aegis.Resilience.Distributed.Abstractions.DistributedCircuitBreakerOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Distributed.Abstractions.DistributedPipelineBuilderExtensions.AddDistributedRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore! store, System.Action<Aegis.Resilience.Distributed.Abstractions.DistributedRateLimiterOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Distributed.Abstractions.InboundEndpointPattern.Parse(string! pattern) -> Aegis.Resilience.Distributed.Abstractions.InboundEndpointPattern!
+static Aegis.Resilience.Distributed.Abstractions.InboundIpRule.Parse(string! value) -> Aegis.Resilience.Distributed.Abstractions.InboundIpRule

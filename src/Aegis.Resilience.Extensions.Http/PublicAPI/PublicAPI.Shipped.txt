@@ -1,0 +1,172 @@
+#nullable enable
+Aegis.Resilience.Extensions.Http.AegisDelegatingHandler
+Aegis.Resilience.Extensions.Http.AegisDelegatingHandler.AegisDelegatingHandler() -> void
+Aegis.Resilience.Extensions.Http.AegisDynamicResilienceHandler
+Aegis.Resilience.Extensions.Http.AegisDynamicResilienceHandler.AegisDynamicResilienceHandler(Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry! registry, System.Func<System.Net.Http.HttpRequestMessage!, string!>! pipelineSelector, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false, long maxRequestBodySize = 10485760) -> void
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.AllowNonIdempotentRetry.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.AllowNonIdempotentRetry.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.ClientName.get -> string!
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.DisableRetryFor(params System.Net.Http.HttpMethod![]! methods) -> Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext!
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.DisableRetryForUnsafeHttpMethods() -> Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext!
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.HandleHttpFailureStatuses.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.HandleHttpFailureStatuses.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.InstanceName.get -> string?
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.ReturnFinalResponse.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext.ReturnFinalResponse.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpPipelineSelectors
+Aegis.Resilience.Extensions.Http.AegisHttpSender
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.AegisHttpStandardHedgingOptions() -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.AllowNonIdempotentHedging.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.AllowNonIdempotentHedging.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.Budget.get -> Aegis.Resilience.Core.Strategies.Retry.RetryBudget?
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.Budget.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointAttemptTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointAttemptTimeout.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointCircuitBreaker.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointCircuitBreaker.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointRateLimiter.get -> Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.EndpointRateLimiter.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.HedgingDelay.get -> System.TimeSpan
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.HedgingDelay.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.MaxEndpointPipelines.get -> int
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.MaxEndpointPipelines.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.MaxHedgedAttempts.get -> int
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.MaxHedgedAttempts.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.OrderedGroups.get -> System.Collections.Generic.IList<Aegis.Resilience.Extensions.Http.UriEndpointGroup!>!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.OrderedGroups.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.SelectionMode.get -> Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.SelectionMode.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.TotalRequestTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.TotalRequestTimeout.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.Validate() -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.WeightedGroups.get -> System.Collections.Generic.IList<Aegis.Resilience.Extensions.Http.WeightedUriEndpointGroup!>!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions.WeightedGroups.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.AegisHttpStandardResilienceOptions() -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.AllowNonIdempotentRetry.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.AllowNonIdempotentRetry.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.AttemptTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.AttemptTimeout.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.CircuitBreaker.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.CircuitBreaker.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.DisableRetryFor(params System.Net.Http.HttpMethod![]! methods) -> Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.DisableRetryForUnsafeHttpMethods() -> Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.HandleHttpFailureStatuses.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.HandleHttpFailureStatuses.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.MaxPipelines.get -> int
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.MaxPipelines.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.PipelineSelector.get -> System.Func<System.Net.Http.HttpRequestMessage!, string!>?
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.PipelineSelector.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.RateLimiter.get -> Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.RateLimiter.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.Retry.get -> Aegis.Resilience.Core.Strategies.Retry.RetryOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.Retry.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.ReturnFinalResponse.get -> bool
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.ReturnFinalResponse.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.SelectPipelineBy(System.Func<System.Net.Http.HttpRequestMessage!, string!>! selector) -> Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.SelectPipelineByAuthority() -> Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.TotalRequestTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.TotalRequestTimeout.set -> void
+Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions.Validate() -> void
+Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors
+Aegis.Resilience.Extensions.Http.AegisResilienceHandler
+Aegis.Resilience.Extensions.Http.AegisResilienceHandler.AegisResilienceHandler(Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false, long maxRequestBodySize = 10485760) -> void
+Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions
+Aegis.Resilience.Extensions.Http.HttpRequestMessageExtensions
+Aegis.Resilience.Extensions.Http.HttpRequestReplayHandler
+Aegis.Resilience.Extensions.Http.HttpRequestReplayHandler.HttpRequestReplayHandler(long maxRequestBodySize = 10485760) -> void
+Aegis.Resilience.Extensions.Http.HttpRetryAfterHelper
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingHandler
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingHandler.MultiEndpointHedgingHandler(Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions! options) -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.AllowNonIdempotentHedging.get -> bool
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.AllowNonIdempotentHedging.set -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.Endpoints.get -> System.Collections.Generic.IReadOnlyList<System.Uri!>!
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.Endpoints.set -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.EndpointsProvider.get -> System.Func<System.Net.Http.HttpRequestMessage!, System.Collections.Generic.IReadOnlyList<System.Uri!>!>?
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.EndpointsProvider.set -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.HedgingDelay.get -> System.TimeSpan
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.HedgingDelay.set -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.MaxHedgedAttempts.get -> int
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.MaxHedgedAttempts.set -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.MultiEndpointHedgingOptions() -> void
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.ShouldHandleResult.get -> System.Func<System.Net.Http.HttpResponseMessage!, bool>?
+Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions.ShouldHandleResult.set -> void
+Aegis.Resilience.Extensions.Http.StandardHandlerExtensions
+Aegis.Resilience.Extensions.Http.UriEndpointGroup
+Aegis.Resilience.Extensions.Http.UriEndpointGroup.Endpoints.get -> System.Collections.Generic.IList<Aegis.Resilience.Extensions.Http.WeightedUriEndpoint!>!
+Aegis.Resilience.Extensions.Http.UriEndpointGroup.Endpoints.set -> void
+Aegis.Resilience.Extensions.Http.UriEndpointGroup.UriEndpointGroup() -> void
+Aegis.Resilience.Extensions.Http.WeightedCanaryHandler
+Aegis.Resilience.Extensions.Http.WeightedCanaryHandler.WeightedCanaryHandler(Aegis.Resilience.Extensions.Http.WeightedCanaryOptions! options) -> void
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.Endpoints.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Extensions.Http.WeightedEndpoint!>!
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.Endpoints.set -> void
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.EndpointsProvider.get -> System.Func<System.Net.Http.HttpRequestMessage!, System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Extensions.Http.WeightedEndpoint!>!>?
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.EndpointsProvider.set -> void
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.StickySessionKeySelector.get -> System.Func<System.Net.Http.HttpRequestMessage!, string?>?
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.StickySessionKeySelector.set -> void
+Aegis.Resilience.Extensions.Http.WeightedCanaryOptions.WeightedCanaryOptions() -> void
+Aegis.Resilience.Extensions.Http.WeightedEndpoint
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.Uri.get -> System.Uri!
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.Uri.set -> void
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.Weight.get -> double
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.Weight.set -> void
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.WeightedEndpoint() -> void
+Aegis.Resilience.Extensions.Http.WeightedEndpoint.WeightedEndpoint(System.Uri! uri, double weight) -> void
+Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode
+Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode.EveryAttempt = 1 -> Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode
+Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode.InitialAttempt = 0 -> Aegis.Resilience.Extensions.Http.WeightedGroupSelectionMode
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint.Uri.get -> System.Uri!
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint.Uri.set -> void
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint.Weight.get -> int
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint.Weight.set -> void
+Aegis.Resilience.Extensions.Http.WeightedUriEndpoint.WeightedUriEndpoint() -> void
+Aegis.Resilience.Extensions.Http.WeightedUriEndpointGroup
+Aegis.Resilience.Extensions.Http.WeightedUriEndpointGroup.Weight.get -> int
+Aegis.Resilience.Extensions.Http.WeightedUriEndpointGroup.Weight.set -> void
+Aegis.Resilience.Extensions.Http.WeightedUriEndpointGroup.WeightedUriEndpointGroup() -> void
+abstract Aegis.Resilience.Extensions.Http.AegisDelegatingHandler.SendCoreAsync(System.Net.Http.HttpRequestMessage! request, Aegis.Resilience.Extensions.Http.AegisHttpSender! innerSend, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
+const Aegis.Resilience.Extensions.Http.HttpRequestReplayHandler.DefaultMaxRequestBodySize = 10485760 -> long
+const Aegis.Resilience.Extensions.Http.HttpRetryAfterHelper.RetryAfterPropertyKey = "Aegis.Http.RetryAfterDelay" -> string!
+override sealed Aegis.Resilience.Extensions.Http.AegisDelegatingHandler.SendAsync(System.Net.Http.HttpRequestMessage! request, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
+static Aegis.Resilience.Extensions.Http.AegisHttpPipelineSelectors.ByAuthority.get -> System.Func<System.Net.Http.HttpRequestMessage!, string!>!
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.HandleTransientHttpErrors(this Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder! builder) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.IsConnectionTimeout(System.Exception! exception, System.Threading.CancellationToken cancellationToken) -> bool
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.IsTransient(System.Exception! exception, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> bool
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.IsTransient(System.Net.Http.HttpResponseMessage! response) -> bool
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.IsTransient(System.Net.HttpStatusCode statusCode) -> bool
+static Aegis.Resilience.Extensions.Http.AegisHttpTransientErrors.IsTransientForHedging(System.Exception! exception, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> bool
+static Aegis.Resilience.Extensions.Http.AegisResilienceHandler.IsIdempotent(System.Net.Http.HttpRequestMessage! request) -> bool
+static Aegis.Resilience.Extensions.Http.AegisResilienceHandler.IsTransientHttpFailure(System.Net.HttpStatusCode statusCode) -> bool
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisDynamicHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Func<System.Net.Http.HttpRequestMessage!, string!>! pipelineSelector, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisHandlerByHost(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, string! fallbackPipelineName = "Default", bool handleHttpFailureStatuses = true) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisResilienceHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisResilienceHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, Aegis.Resilience.Extensions.Http.AegisHttpHandlerContext!>! configure, System.Func<System.Net.Http.HttpRequestMessage!, string!>! selectPipelineBy, int maxPipelines = 1000) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisResilienceHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!>! configure, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddAegisResilienceHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, string! pipelineName, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddHttpRequestReplayHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, long maxRequestBodySize = 10485760) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddMultiEndpointHedgingHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.MultiEndpointHedgingOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddStandardAegisHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.TimeSpan? totalTimeout = null, int maxConcurrency = 100, int retryAttempts = 3, System.TimeSpan? attemptTimeout = null, bool handleHttpFailureStatuses = true, bool allowNonIdempotentRetry = false) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.AddWeightedCanaryHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.WeightedCanaryOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpClientBuilderExtensions.RemoveAllAegisHandlers(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.HttpRequestMessageExtensions.GetAegisContext(this System.Net.Http.HttpRequestMessage! request) -> Aegis.Resilience.Core.Context.AegisContext?
+static Aegis.Resilience.Extensions.Http.HttpRequestMessageExtensions.GetOrCreateAegisContext(this System.Net.Http.HttpRequestMessage! request, string? pipelineName = null) -> Aegis.Resilience.Core.Context.AegisContext!
+static Aegis.Resilience.Extensions.Http.HttpRequestMessageExtensions.GetRequestMessage(this Aegis.Resilience.Core.Context.AegisContext! context) -> System.Net.Http.HttpRequestMessage?
+static Aegis.Resilience.Extensions.Http.HttpRequestMessageExtensions.SetAegisContext(this System.Net.Http.HttpRequestMessage! request, Aegis.Resilience.Core.Context.AegisContext! context) -> void
+static Aegis.Resilience.Extensions.Http.HttpRequestReplayHandler.CloneRequestAsync(System.Net.Http.HttpRequestMessage! req, System.Threading.CancellationToken ct = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpRequestMessage!>!
+static Aegis.Resilience.Extensions.Http.HttpRequestReplayHandler.CloneRequestAsync(System.Net.Http.HttpRequestMessage! req, long maxRequestBodySize, System.Threading.CancellationToken ct = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpRequestMessage!>!
+static Aegis.Resilience.Extensions.Http.HttpRetryAfterHelper.TryParse(System.Net.Http.HttpResponseMessage? response, out System.TimeSpan delay) -> bool
+static Aegis.Resilience.Extensions.Http.HttpRetryAfterHelper.TryParseRaw(string? rawValue, out System.TimeSpan delay) -> bool
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, Microsoft.Extensions.Configuration.IConfigurationSection! section, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!, System.IServiceProvider!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHedgingHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, Microsoft.Extensions.Configuration.IConfigurationSection! section, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHedgingHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions!, System.IServiceProvider!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.StandardHandlerExtensions.AddStandardAegisHedgingHandler(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardHedgingOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Extensions.Http.WeightedCanaryHandler.ComputeDeterministicHash(string! text) -> uint
+virtual Aegis.Resilience.Extensions.Http.AegisDelegatingHandler.RunsAttemptsConcurrently.get -> bool
+virtual Aegis.Resilience.Extensions.Http.AegisHttpSender.Invoke(System.Net.Http.HttpRequestMessage! request, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!

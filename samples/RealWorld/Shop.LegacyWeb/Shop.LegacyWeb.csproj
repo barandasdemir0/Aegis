@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Klasik ASP.NET Web API 2 (.NET Framework 4.8, OWIN self-host): Aegis.Resilience.WebApi + .NET Framework'te Aegis çekirdeği ve Redis. -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aegis.Resilience.WebApi" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Http" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Distributed.Redis" Version="$(AegisVersion)" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.3.0" />
+  </ItemGroup>
+
+</Project>

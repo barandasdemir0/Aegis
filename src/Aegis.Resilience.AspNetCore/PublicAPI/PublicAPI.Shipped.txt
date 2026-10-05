@@ -1,0 +1,31 @@
+#nullable enable
+Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions
+Aegis.Resilience.AspNetCore.AegisInboundPipelineAttribute
+Aegis.Resilience.AspNetCore.AegisInboundPipelineAttribute.AegisInboundPipelineAttribute(string! pipelineName) -> void
+Aegis.Resilience.AspNetCore.AegisInboundPipelineAttribute.PipelineName.get -> string!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.AddRule(string! endpoint, int limit, System.TimeSpan period, Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm algorithm = Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm.FixedWindow) -> Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.AegisInboundRateLimitOptions() -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.OnRejected.get -> System.Func<Microsoft.AspNetCore.Http.HttpContext!, Aegis.Resilience.AspNetCore.AegisInboundRateLimitRejection!, System.Threading.Tasks.Task!>?
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.OnRejected.set -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.PartitionByClientIp() -> Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.PartitionByHeader(string! headerName) -> Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.PartitionByUser() -> Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.PartitionKeySelector.get -> System.Func<Microsoft.AspNetCore.Http.HttpContext!, string?>!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.PartitionKeySelector.set -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.RejectionStatusCode.get -> int
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.RejectionStatusCode.set -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.Rules.get -> System.Collections.Generic.List<Aegis.Resilience.AspNetCore.AegisInboundRateLimitRule!>!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.Rules.set -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions.Validate() -> void
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRejection
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRejection.PartitionKey.get -> string!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRejection.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRejection.Rule.get -> Aegis.Resilience.AspNetCore.AegisInboundRateLimitRule!
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRule
+Aegis.Resilience.AspNetCore.AegisInboundRateLimitRule.AegisInboundRateLimitRule() -> void
+static Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions.AddAegisInboundRateLimiting(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, Microsoft.Extensions.Configuration.IConfigurationSection! section, System.Action<Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions.AddAegisInboundRateLimiting(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Aegis.Resilience.AspNetCore.AegisInboundRateLimitOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions.RequireAegisPipeline<TBuilder>(this TBuilder builder, string! pipelineName) -> TBuilder
+static Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions.UseAegisInboundPipelines(this Microsoft.AspNetCore.Builder.IApplicationBuilder! app) -> Microsoft.AspNetCore.Builder.IApplicationBuilder!
+static Aegis.Resilience.AspNetCore.AegisAspNetCoreExtensions.UseAegisInboundRateLimiting(this Microsoft.AspNetCore.Builder.IApplicationBuilder! app) -> Microsoft.AspNetCore.Builder.IApplicationBuilder!

@@ -1,0 +1,17 @@
+# Aegis birim testlerini LINUX üzerinde net8.0, net9.0 ve net10.0 ile koşturan imaj.
+# Derleme .NET 10 SDK ister (C# 14); net8/net9 çalışma zamanları resmi aspnet imajlarından eklenir.
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS rt8
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS rt9
+FROM mcr.microsoft.com/dotnet/sdk:10.0
+COPY --from=rt8 /usr/share/dotnet/shared /usr/share/dotnet/shared
+COPY --from=rt9 /usr/share/dotnet/shared /usr/share/dotnet/shared
+# Paket önbelleği root'un ev dizininde OLMAMALI: aksi halde root olmayan kullanıcı test SDK'sının MSBuild dosyalarını
+# okuyamaz ve dotnet test 0 test koşup SESSİZCE "başarılı" döner (bu imajda yaşandı).
+ENV NUGET_PACKAGES=/nuget
+WORKDIR /repo
+COPY . .
+RUN dotnet build tests/Aegis.Tests/Aegis.Tests.csproj -c Release -nologo -v q \
+ && chown -R $APP_UID /repo /nuget
+# Testler root olmayan kullanıcıyla koşar (Trivy AVD-DS-0002)
+USER $APP_UID
+ENTRYPOINT ["bash", "-c", "for f in net8.0 net9.0 net10.0; do dotnet test tests/Aegis.Tests/Aegis.Tests.csproj -c Release -f $f --no-build -nologo --logger 'console;verbosity=minimal' || fail=1; done; exit ${fail:-0}"]

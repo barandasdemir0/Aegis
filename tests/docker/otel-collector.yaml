@@ -1,0 +1,32 @@
+# Gerçek OpenTelemetry Collector (smoke testi): gRPC (4317) ve HTTP/protobuf (4318) ile gelen Aegis telemetrisi (ölçüm, günlük, iz).
+#  - Ölçümler Prometheus biçiminde sunulur (:8889/metrics); smoke testi bunu kazıyıp ad, değer ve etiketleri ayrıştırır.
+#  - İzler (traces) ve günlükler hem debug çıktısına (docker logs) yazılır hem de smoke uygulamasının yerel alıcısına (host.docker.internal:5555)
+#    OTLP/HTTP ile yeniden iletilir; uygulama gelen gövdeyi doğrular. Alıcı yoksa Collector hata günlüğü yazar, çalışmaya devam eder.
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+exporters:
+  prometheus:
+    endpoint: 0.0.0.0:8889
+  debug:
+    verbosity: detailed
+  otlphttp/applogs:
+    endpoint: http://host.docker.internal:5555
+    compression: none   # varsayılan gzip; smoke testi gövdede düz ASCII arar
+    retry_on_failure:
+      enabled: false
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      exporters: [prometheus]
+    logs:
+      receivers: [otlp]
+      exporters: [debug, otlphttp/applogs]
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlphttp/applogs]

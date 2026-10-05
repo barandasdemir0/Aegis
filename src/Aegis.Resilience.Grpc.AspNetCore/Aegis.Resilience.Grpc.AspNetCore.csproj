@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis gRPC sunucu koruması (ASP.NET Core): gelen gRPC çağrılarına eşzamanlılık sınırı, hız sınırı, zaman aşımı ve devre kesici; retler gRPC durumu ve grpc-retry-pushback-ms ile döner; sunucu zaman aşımı servis kodunu gerçekten keser.</Description>
+    <PackageTags>$(PackageTags);grpc;aspnetcore;server</PackageTags>
+    <!-- Grpc.AspNetCore.Server ASP.NET Core paylaşılan çerçevesine bağlıdır: yalnızca .NET 8+ -->
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Grpc\Aegis.Resilience.Grpc.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="2.84.0" />
+  </ItemGroup>
+
+</Project>

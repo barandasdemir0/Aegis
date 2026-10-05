@@ -1,0 +1,5 @@
+#nullable enable
+Aegis.Resilience.Data.SqlClient.AegisSqlTransientErrors
+static Aegis.Resilience.Data.SqlClient.AegisSqlTransientErrors.ErrorNumbers.get -> System.Collections.Generic.IReadOnlyCollection<int>!
+static Aegis.Resilience.Data.SqlClient.AegisSqlTransientErrors.HandleSqlTransientErrors(this Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder! builder) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+static Aegis.Resilience.Data.SqlClient.AegisSqlTransientErrors.IsTransient(System.Exception? exception) -> bool

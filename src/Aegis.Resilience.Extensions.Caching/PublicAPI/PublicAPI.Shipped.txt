@@ -1,0 +1,16 @@
+#nullable enable
+Aegis.Resilience.Extensions.Caching.AegisCachingServiceCollectionExtensions
+Aegis.Resilience.Extensions.Caching.DistributedCacheStore
+Aegis.Resilience.Extensions.Caching.DistributedCacheStore.DistributedCacheStore(Microsoft.Extensions.Caching.Distributed.IDistributedCache! cache, Aegis.Resilience.Extensions.Caching.IAegisCacheSerializer! serializer, string? keyPrefix = null) -> void
+Aegis.Resilience.Extensions.Caching.DistributedCacheStore.RemoveAsync(string! key, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Extensions.Caching.DistributedCacheStore.SetAsync<T>(string! key, T value, Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions options, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Extensions.Caching.DistributedCacheStore.TryGetAsync<T>(string! key, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>>
+Aegis.Resilience.Extensions.Caching.IAegisCacheSerializer
+Aegis.Resilience.Extensions.Caching.IAegisCacheSerializer.Deserialize<T>(byte[]! data) -> T
+Aegis.Resilience.Extensions.Caching.IAegisCacheSerializer.Serialize<T>(T value) -> byte[]!
+Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer
+Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer.Deserialize<T>(byte[]! data) -> T
+Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer.Serialize<T>(T value) -> byte[]!
+Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer.SystemTextJsonCacheSerializer(System.Text.Json.JsonSerializerOptions! options) -> void
+static Aegis.Resilience.Extensions.Caching.AegisCachingServiceCollectionExtensions.AddAegisDistributedCacheStore(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, Aegis.Resilience.Extensions.Caching.IAegisCacheSerializer! serializer, string? keyPrefix = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer.CreateReflectionBased(System.Text.Json.JsonSerializerOptions? options = null) -> Aegis.Resilience.Extensions.Caching.SystemTextJsonCacheSerializer!

@@ -1,0 +1,10 @@
+#nullable enable
+Aegis.Resilience.Extensions.Telemetry.AegisRequestMetadataExtensions
+Aegis.Resilience.Extensions.Telemetry.AegisResilienceTagNames
+Aegis.Resilience.Extensions.Telemetry.AegisTelemetryServiceCollectionExtensions
+const Aegis.Resilience.Extensions.Telemetry.AegisResilienceTagNames.DependencyName = "request.dependency.name" -> string!
+const Aegis.Resilience.Extensions.Telemetry.AegisResilienceTagNames.ErrorType = "error.type" -> string!
+const Aegis.Resilience.Extensions.Telemetry.AegisResilienceTagNames.RequestName = "request.name" -> string!
+static Aegis.Resilience.Extensions.Telemetry.AegisRequestMetadataExtensions.GetRequestMetadata(this Aegis.Resilience.Core.Context.AegisContext! context) -> Microsoft.Extensions.Http.Diagnostics.RequestMetadata?
+static Aegis.Resilience.Extensions.Telemetry.AegisRequestMetadataExtensions.SetRequestMetadata(this Aegis.Resilience.Core.Context.AegisContext! context, Microsoft.Extensions.Http.Diagnostics.RequestMetadata! requestMetadata) -> void
+static Aegis.Resilience.Extensions.Telemetry.AegisTelemetryServiceCollectionExtensions.AddAegisResilienceEnricher(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "Shop.Contracts";
+
+// Stok servisi: dört gRPC çağrı türünün hepsi (unary, sunucu akışı, istemci akışı, çift yönlü akış).
+service Inventory {
+  rpc Reserve (ReserveRequest) returns (ReserveReply);
+  rpc Watch (WatchRequest) returns (stream StockLevel);
+  rpc BulkReserve (stream ReserveRequest) returns (BulkReply);
+  rpc Sync (stream ReserveRequest) returns (stream ReserveReply);
+}
+
+message ReserveRequest {
+  string sku = 1;
+  int32 quantity = 2;
+}
+
+message ReserveReply {
+  string sku = 1;
+  int32 reserved = 2;
+  string served_by = 3;
+}
+
+message WatchRequest {
+  string sku = 1;
+  int32 count = 2;
+}
+
+message StockLevel {
+  string sku = 1;
+  int32 level = 2;
+}
+
+message BulkReply {
+  int32 total = 1;
+  int32 items = 2;
+  string served_by = 3;
+}

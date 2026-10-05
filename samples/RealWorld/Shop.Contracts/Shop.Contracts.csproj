@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.31.1" />
+    <PackageReference Include="Grpc.Core.Api" Version="$(GrpcVersion)" />
+    <PackageReference Include="Grpc.Tools" Version="$(GrpcVersion)" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="inventory.proto" GrpcServices="Both" />
+  </ItemGroup>
+
+</Project>

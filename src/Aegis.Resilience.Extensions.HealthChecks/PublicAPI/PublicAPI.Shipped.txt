@@ -1,0 +1,14 @@
+#nullable enable
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheck
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheck.AegisHealthCheck(Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry! registry, Microsoft.Extensions.Options.IOptions<Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions!>? options = null) -> void
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext! context, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckResult>!
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.AegisHealthCheckOptions() -> void
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.OpenCircuitStatus.get -> Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.OpenCircuitStatus.set -> void
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.PipelineFilter.get -> System.Func<string!, bool>?
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.PipelineFilter.set -> void
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.SharedStateUnavailableStatus.get -> Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions.SharedStateUnavailableStatus.set -> void
+Aegis.Resilience.Extensions.HealthChecks.AegisHealthChecksBuilderExtensions
+static Aegis.Resilience.Extensions.HealthChecks.AegisHealthChecksBuilderExtensions.AddAegisCheck(this Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder! builder, string! name = "aegis_resilience", Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus? failureStatus = null, System.Collections.Generic.IEnumerable<string!>? tags = null, System.Action<Aegis.Resilience.Extensions.HealthChecks.AegisHealthCheckOptions!>? configureOptions = null) -> Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder!

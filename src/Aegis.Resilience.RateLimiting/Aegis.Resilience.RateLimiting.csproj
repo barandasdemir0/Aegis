@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis için System.Threading.RateLimiting köprüsü: .NET'in hazır sınırlayıcılarını (TokenBucket, FixedWindow, SlidingWindow, Concurrency, Partitioned) Aegis boru hattında kullanın (Polly.RateLimiting eşdeğeri).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Threading.RateLimiting" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis metrik zenginleştiricisi: error.type (IExceptionSummarizer), request.name ve request.dependency.name (RequestMetadata) etiketleri (Microsoft.Extensions.Resilience AddResilienceEnricher eşdeğeri).</Description>
+    <!--
+      Yalnızca .NET 8+: dayandığı Microsoft telemetri paketleri (ExceptionSummarization, Telemetry.Abstractions,
+      Http.Diagnostics) .NET Framework'ü desteklemez ("doesn't support net462" uyarısı). Microsoft'un kendi
+      AddResilienceEnricher'ı da aynı paketlere dayanır; kapsam onunla aynıdır.
+    -->
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\Aegis.Resilience.Extensions.DependencyInjection\Aegis.Resilience.Extensions.DependencyInjection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.ExceptionSummarization" Version="10.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="10.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Diagnostics" Version="10.10.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.ExceptionSummarization" Version="9.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="9.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Diagnostics" Version="9.10.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.ExceptionSummarization" Version="8.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="8.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Http.Diagnostics" Version="8.10.0" />
+  </ItemGroup>
+
+</Project>

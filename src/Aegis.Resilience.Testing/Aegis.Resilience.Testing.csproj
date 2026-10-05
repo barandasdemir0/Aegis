@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis boru hatlarını test etmek için yardımcılar: GetPipelineDescriptor ile strateji listesi, seçenekler ve yeniden yüklenebilirlik (Polly.Testing eşdeğeri).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+  </ItemGroup>
+
+</Project>

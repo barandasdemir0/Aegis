@@ -1,0 +1,9 @@
+#nullable enable
+Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor
+Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor.AegisGrpcServerInterceptor(Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> void
+Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServiceOptionsExtensions
+override Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor.ClientStreamingServerHandler<TRequest, TResponse>(Grpc.Core.IAsyncStreamReader<TRequest!>! requestStream, Grpc.Core.ServerCallContext! context, Grpc.Core.ClientStreamingServerMethod<TRequest!, TResponse!>! continuation) -> System.Threading.Tasks.Task<TResponse!>!
+override Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor.DuplexStreamingServerHandler<TRequest, TResponse>(Grpc.Core.IAsyncStreamReader<TRequest!>! requestStream, Grpc.Core.IServerStreamWriter<TResponse!>! responseStream, Grpc.Core.ServerCallContext! context, Grpc.Core.DuplexStreamingServerMethod<TRequest!, TResponse!>! continuation) -> System.Threading.Tasks.Task!
+override Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor.ServerStreamingServerHandler<TRequest, TResponse>(TRequest! request, Grpc.Core.IServerStreamWriter<TResponse!>! responseStream, Grpc.Core.ServerCallContext! context, Grpc.Core.ServerStreamingServerMethod<TRequest!, TResponse!>! continuation) -> System.Threading.Tasks.Task!
+override Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServerInterceptor.UnaryServerHandler<TRequest, TResponse>(TRequest! request, Grpc.Core.ServerCallContext! context, Grpc.Core.UnaryServerMethod<TRequest!, TResponse!>! continuation) -> System.Threading.Tasks.Task<TResponse!>!
+static Aegis.Resilience.Grpc.AspNetCore.AegisGrpcServiceOptionsExtensions.AddAegisResilience(this Grpc.AspNetCore.Server.GrpcServiceOptions! options, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!>! configure) -> Grpc.AspNetCore.Server.GrpcServiceOptions!

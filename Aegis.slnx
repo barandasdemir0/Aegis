@@ -1,0 +1,30 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Aegis.Resilience.Core/Aegis.Resilience.Core.csproj" />
+    <Project Path="src/Aegis.Resilience.Distributed.Abstractions/Aegis.Resilience.Distributed.Abstractions.csproj" />
+    <Project Path="src/Aegis.Resilience.Distributed.Redis/Aegis.Resilience.Distributed.Redis.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.Dashboard/Aegis.Resilience.Extensions.Dashboard.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.DependencyInjection/Aegis.Resilience.Extensions.DependencyInjection.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.HealthChecks/Aegis.Resilience.Extensions.HealthChecks.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.Http/Aegis.Resilience.Extensions.Http.csproj" />
+    <Project Path="src/Aegis.Resilience.RateLimiting/Aegis.Resilience.RateLimiting.csproj" />
+    <Project Path="src/Aegis.Resilience.Testing/Aegis.Resilience.Testing.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.Telemetry/Aegis.Resilience.Extensions.Telemetry.csproj" />
+    <Project Path="src/Aegis.Resilience.Data.SqlClient/Aegis.Resilience.Data.SqlClient.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.Caching/Aegis.Resilience.Extensions.Caching.csproj" />
+    <Project Path="src/Aegis.Resilience.AspNetCore/Aegis.Resilience.AspNetCore.csproj" />
+    <Project Path="src/Aegis.Resilience.Extensions.Aspire/Aegis.Resilience.Extensions.Aspire.csproj" />
+    <Project Path="src/Aegis.Resilience.WebApi/Aegis.Resilience.WebApi.csproj" />
+    <Project Path="src/Aegis.Resilience.Grpc/Aegis.Resilience.Grpc.csproj" />
+    <Project Path="src/Aegis.Resilience.Grpc.AspNetCore/Aegis.Resilience.Grpc.AspNetCore.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Aegis.Tests/Aegis.Tests.csproj" />
+    <Project Path="tests/Aegis.CompatibilityTests/Aegis.CompatibilityTests.csproj" />
+    <Project Path="tests/Aegis.TortureTests/Aegis.TortureTests.csproj" />
+    <Project Path="tests/Aegis.AotSmokeTest/Aegis.AotSmokeTest.csproj" />
+  </Folder>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/Aegis.Benchmarks/Aegis.Benchmarks.csproj" />
+  </Folder>
+</Solution>

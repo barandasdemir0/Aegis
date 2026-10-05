@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore.Server" Version="$(GrpcVersion)" />
+    <PackageReference Include="Aegis.Resilience.Grpc.AspNetCore" Version="$(AegisVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shop.Contracts\Shop.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

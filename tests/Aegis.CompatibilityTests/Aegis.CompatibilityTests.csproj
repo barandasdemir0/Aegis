@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    .NET Framework uyumluluk testleri: kütüphanelerin netstandard2.0 / net462 derlemeleri GERÇEK .NET Framework 4.8
+    çalışma zamanında koşar (polyfill'ler, genişletme metodu yolu, HttpRequestMessage.Properties, Bcl.TimeProvider).
+    Ana test paketi (tests/Aegis.Tests) .NET 8/9/10'da koşar.
+  -->
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <!-- Microsoft.Extensions.* 8.x paketleri net462 hedefler; net48 üzerinde çalışır ama "test edilmedi" uyarısı verir. -->
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+    <LangVersion>14.0</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)..\..\Aegis.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="System.Net.Http" />
+    <Using Include="Xunit" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" Version="8.10.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Distributed.Abstractions\Aegis.Resilience.Distributed.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.DependencyInjection\Aegis.Resilience.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Http\Aegis.Resilience.Extensions.Http.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.HealthChecks\Aegis.Resilience.Extensions.HealthChecks.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.RateLimiting\Aegis.Resilience.RateLimiting.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Testing\Aegis.Resilience.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Caching\Aegis.Resilience.Extensions.Caching.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Data.SqlClient\Aegis.Resilience.Data.SqlClient.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.WebApi\Aegis.Resilience.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

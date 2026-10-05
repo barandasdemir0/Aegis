@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis için SQL Server / Azure SQL geçici hata tanıma: yeniden denenebilir hata numaraları (EF Core ile aynı güncel liste), iç istisna zinciri taraması ve AegisPredicateBuilder eklentisi (Enterprise Library Transient Fault Handling / Topaz eşdeğeri).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Alt sınır bilinçli olarak düşük: yalnızca kararlı SqlException/SqlError.Number API'si kullanılır; EF Core 8 ile uyumlu. -->
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.3" />
+  </ItemGroup>
+
+</Project>

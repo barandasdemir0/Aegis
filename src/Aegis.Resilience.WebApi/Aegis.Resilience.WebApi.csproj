@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis klasik ASP.NET Web API 2 (.NET Framework) sunucu tarafı koruma: gelen istek hız sınırlama (IP / başlık / kullanıcı bölümleme, uç nokta kuralları, çoklu periyot, beyaz liste, RateLimit-* başlıkları, Redis ile küme genelinde kota — WebApiThrottle eşdeğeri).</Description>
+    <PackageTags>$(PackageTags);webapi;aspnet;throttling</PackageTags>
+    <!-- Web API 2 yalnızca .NET Framework üzerinde çalışır; ASP.NET Core karşılığı Aegis.Resilience.AspNetCore'dur. -->
+    <TargetFrameworks>net462</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\Aegis.Resilience.Distributed.Abstractions\Aegis.Resilience.Distributed.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.3.0" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,4 @@
+#nullable enable
+Aegis.Resilience.Extensions.Dashboard.AegisDashboardExtensions
+static Aegis.Resilience.Extensions.Dashboard.AegisDashboardExtensions.MapAegisDashboard(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder! endpoints, string! pattern = "/aegis", string? authorizationPolicy = null, string? actionAuthorizationPolicy = null) -> Microsoft.AspNetCore.Builder.IEndpointConventionBuilder!
+static Aegis.Resilience.Extensions.Dashboard.AegisDashboardExtensions.MapAegisStatus(this Microsoft.AspNetCore.Routing.IEndpointRouteBuilder! endpoints, string! pattern = "/aegis/status", string? authorizationPolicy = null) -> Microsoft.AspNetCore.Builder.IEndpointConventionBuilder!

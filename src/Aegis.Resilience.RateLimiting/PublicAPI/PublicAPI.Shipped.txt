@@ -1,0 +1,20 @@
+#nullable enable
+Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.LeaseFactory.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<System.Threading.RateLimiting.RateLimitLease!>>?
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.LeaseFactory.set -> void
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.OnRejected.set -> void
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.OwnedLimiter.get -> System.IDisposable?
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.OwnedLimiter.set -> void
+Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions.RateLimitingBridgeOptions() -> void
+Aegis.Resilience.RateLimiting.RateLimitingBridgeStrategy
+Aegis.Resilience.RateLimiting.RateLimitingBridgeStrategy.Dispose() -> void
+Aegis.Resilience.RateLimiting.RateLimitingBridgeStrategy.RateLimitingBridgeStrategy(Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions! options) -> void
+override Aegis.Resilience.RateLimiting.RateLimitingBridgeStrategy.Name.get -> string!
+override Aegis.Resilience.RateLimiting.RateLimitingBridgeStrategy.Options.get -> object?
+static Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions.AddFixedWindowRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Threading.RateLimiting.FixedWindowRateLimiterOptions! limiterOptions, System.Action<Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions.AddRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions.AddRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Threading.RateLimiting.PartitionedRateLimiter<Aegis.Resilience.Core.Context.AegisContext!>! limiter, System.Action<Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions.AddRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Threading.RateLimiting.RateLimiter! limiter, System.Action<Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.RateLimiting.AegisRateLimitingBuilderExtensions.AddTokenBucketRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Threading.RateLimiting.TokenBucketRateLimiterOptions! limiterOptions, System.Action<Aegis.Resilience.RateLimiting.RateLimitingBridgeOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!

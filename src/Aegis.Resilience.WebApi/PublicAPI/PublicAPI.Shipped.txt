@@ -1,0 +1,26 @@
+#nullable enable
+Aegis.Resilience.WebApi.AegisWebApiConfigurationExtensions
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.AddRule(string! endpoint, int limit, System.TimeSpan period, Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm algorithm = Aegis.Resilience.Distributed.Abstractions.DistributedRateLimitAlgorithm.FixedWindow) -> Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.AegisWebApiRateLimitOptions() -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.OnRejected.get -> System.Action<System.Net.Http.HttpRequestMessage!, Aegis.Resilience.WebApi.AegisWebApiRateLimitRejection!, System.Net.Http.HttpResponseMessage!>?
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.OnRejected.set -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.PartitionByClientIp() -> Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.PartitionByHeader(string! headerName) -> Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.PartitionByUser() -> Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.PartitionKeySelector.get -> System.Func<System.Net.Http.HttpRequestMessage!, string?>!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.PartitionKeySelector.set -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.RejectionStatusCode.get -> System.Net.HttpStatusCode
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.RejectionStatusCode.set -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.Rules.get -> System.Collections.Generic.List<Aegis.Resilience.WebApi.AegisWebApiRateLimitRule!>!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.Rules.set -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions.Validate() -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRejection
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRejection.PartitionKey.get -> string!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRejection.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRejection.Rule.get -> Aegis.Resilience.WebApi.AegisWebApiRateLimitRule!
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRule
+Aegis.Resilience.WebApi.AegisWebApiRateLimitRule.AegisWebApiRateLimitRule() -> void
+Aegis.Resilience.WebApi.AegisWebApiRateLimitingHandler
+Aegis.Resilience.WebApi.AegisWebApiRateLimitingHandler.AegisWebApiRateLimitingHandler(Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions! options, Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore? store = null) -> void
+static Aegis.Resilience.WebApi.AegisWebApiConfigurationExtensions.UseAegisRateLimiting(this System.Web.Http.HttpConfiguration! configuration, System.Action<Aegis.Resilience.WebApi.AegisWebApiRateLimitOptions!>! configure, Aegis.Resilience.Distributed.Abstractions.IDistributedRateLimitStore? store = null) -> System.Web.Http.HttpConfiguration!

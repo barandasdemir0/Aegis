@@ -1,0 +1,2 @@
+#nullable enable
+override sealed Aegis.Resilience.Extensions.Http.AegisDelegatingHandler.Send(System.Net.Http.HttpRequestMessage! request, System.Threading.CancellationToken cancellationToken) -> System.Net.Http.HttpResponseMessage!

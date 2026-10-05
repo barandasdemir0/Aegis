@@ -1,0 +1,86 @@
+#nullable enable
+Aegis.Resilience.Extensions.DependencyInjection.AdvancedRegistrationExtensions
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.AddReloadToken(System.Threading.CancellationToken cancellationToken) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.AegisPipelineContext(System.IServiceProvider! serviceProvider, string! pipelineName, System.Action! reload) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.EnableReloads<TOptions>(Microsoft.Extensions.Options.IOptionsMonitor<TOptions>! monitor, string? name = null) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.EnableReloads<TOptions>(string? name = null) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.GetOptions<TOptions>(string? name = null) -> TOptions!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.OnPipelineDisposed(System.Action! callback) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.PipelineName.get -> string!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.ServiceProvider.get -> System.IServiceProvider!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext.TakeResources() -> System.IDisposable!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.AegisPipelineRegistry() -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.AegisPipelineRegistry(System.IServiceProvider? serviceProvider, System.Collections.Generic.IEnumerable<Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineConfigurator!>? configurators = null) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.Dispose() -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.DisposeAsync() -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.GetAllPipelines() -> System.Collections.Generic.IReadOnlyDictionary<string!, Aegis.Resilience.Core.Abstractions.IAegisPipeline!>!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.GetPipeline(string! name) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.RegisterPipeline(string! name, Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry.TryGetPipeline(string! name, out Aegis.Resilience.Core.Abstractions.IAegisPipeline? pipeline) -> bool
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.AegisPipelineRegistry(System.Collections.Generic.IEqualityComparer<TKey>? comparer = null, System.Func<TKey, string!>? nameFormatter = null) -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.ConfigureBuilder.get -> System.Action<Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder!, TKey>?
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.ConfigureBuilder.set -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.Dispose() -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.DisposeAsync() -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.DynamicBuilder.get -> System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TKey>?
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.DynamicBuilder.set -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.GetOrAddPipeline(TKey key, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TKey>! configure) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.GetPipeline(TKey key) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.Keys.get -> System.Collections.Generic.IReadOnlyCollection<TKey>!
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.MaxDynamicPipelines.get -> int
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.MaxDynamicPipelines.set -> void
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.TryAddBuilder(TKey key, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TKey>! configure) -> bool
+Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineRegistry<TKey>.TryGetPipeline(TKey key, out Aegis.Resilience.Core.Abstractions.IAegisPipeline? pipeline) -> bool
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisDispatchProxy<TInterface>
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisDispatchProxy<TInterface>.AegisDispatchProxy() -> void
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisPolicyAttribute
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisPolicyAttribute.AegisPolicyAttribute(string! pipelineName) -> void
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisPolicyAttribute.PipelineName.get -> string!
+Aegis.Resilience.Extensions.DependencyInjection.Aop.AopServiceCollectionExtensions
+Aegis.Resilience.Extensions.DependencyInjection.DelegateAegisPipelineConfigurator
+Aegis.Resilience.Extensions.DependencyInjection.DelegateAegisPipelineConfigurator.Build(System.IServiceProvider! serviceProvider) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.DelegateAegisPipelineConfigurator.DelegateAegisPipelineConfigurator(string! name, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, System.IServiceProvider!>! configure) -> void
+Aegis.Resilience.Extensions.DependencyInjection.DelegateAegisPipelineConfigurator.Name.get -> string!
+Aegis.Resilience.Extensions.DependencyInjection.DynamicOptions.DynamicAegisOptionsBridge
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineConfigurator
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineConfigurator.Build(System.IServiceProvider! serviceProvider) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineConfigurator.Name.get -> string!
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineProvider<TKey>
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineProvider<TKey>.GetPipeline(TKey key) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineProvider<TKey>.TryGetPipeline(TKey key, out Aegis.Resilience.Core.Abstractions.IAegisPipeline? pipeline) -> bool
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry.GetAllPipelines() -> System.Collections.Generic.IReadOnlyDictionary<string!, Aegis.Resilience.Core.Abstractions.IAegisPipeline!>!
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry.GetPipeline(string! name) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry.RegisterPipeline(string! name, Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> void
+Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry.TryGetPipeline(string! name, out Aegis.Resilience.Core.Abstractions.IAegisPipeline? pipeline) -> bool
+Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisLoggingTelemetryListener
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisLoggingTelemetryListener.AegisLoggingTelemetryListener(Microsoft.Extensions.Logging.ILoggerFactory! loggerFactory, System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?, object?>? resultFormatter = null) -> void
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.AegisTelemetryConfiguration() -> void
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.Configure.get -> System.Collections.Generic.IList<System.Action<Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions!, System.IServiceProvider!>!>!
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.EnableLogging.get -> bool
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.EnableLogging.set -> void
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.ResultFormatter.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?, object?>?
+Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.ResultFormatter.set -> void
+const Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisLoggingTelemetryListener.CategoryName = "Aegis" -> string!
+override Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisDispatchProxy<TInterface>.Invoke(System.Reflection.MethodInfo? targetMethod, object?[]? args) -> object?
+override Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisLoggingTelemetryListener.Write(in Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent telemetryEvent) -> void
+static Aegis.Resilience.Extensions.DependencyInjection.AdvancedRegistrationExtensions.AddAegisPipeline<TKey>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, TKey key, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TKey, System.IServiceProvider!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.AdvancedRegistrationExtensions.AddAegisPipeline<TOptions>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! name, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TOptions!, System.IServiceProvider!>! configure, string? optionsName = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.AdvancedRegistrationExtensions.AddAegisPipelines<TKey>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, TKey, System.IServiceProvider!>! configure, int maxDynamicPipelines = 10000) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.Aop.AegisDispatchProxy<TInterface>.Create(TInterface! target, Aegis.Resilience.Extensions.DependencyInjection.IAegisPipelineRegistry! registry, string? defaultPipelineName = null) -> TInterface!
+static Aegis.Resilience.Extensions.DependencyInjection.Aop.AopServiceCollectionExtensions.AddAegisProxiedScoped<TInterface, TImplementation>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string? defaultPipelineName = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.Aop.AopServiceCollectionExtensions.AddAegisProxiedSingleton<TInterface, TImplementation>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string? defaultPipelineName = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.Aop.AopServiceCollectionExtensions.AddAegisProxiedTransient<TInterface, TImplementation>(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string? defaultPipelineName = null) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.DynamicOptions.DynamicAegisOptionsBridge.Create<TOptions>(Microsoft.Extensions.Options.IOptionsMonitor<TOptions!>! monitor, string? name = null) -> System.Func<TOptions!>!
+static Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAegis(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAegisPipeline(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! name, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, System.IServiceProvider!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAegisPipeline(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! name, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions.AddAegisPipelineWithContext(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, string! name, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!, Aegis.Resilience.Extensions.DependencyInjection.AegisPipelineContext!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.ServiceCollectionExtensions.ConfigureAegisTelemetry(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisLoggingTelemetryListener.DefaultResultFormatter(Aegis.Resilience.Core.Context.AegisContext! context, object? result) -> object?
+static Aegis.Resilience.Extensions.DependencyInjection.Telemetry.AegisTelemetryConfiguration.Apply(Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder! builder, System.IServiceProvider! serviceProvider) -> void

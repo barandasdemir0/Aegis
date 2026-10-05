@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Kütüphanelerin InternalsVisibleTo hedefi: aynı strong name anahtarıyla imzalanır. -->
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)..\..\Aegis.snk</AssemblyOriginatorKeyFile>
+    <!-- Testler, kütüphanenin desteklediği tüm hedef çerçevelerde koşar -->
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" Version="10.10.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.12" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+    <PackageReference Include="Xunit.SkippableFact" Version="1.5.85" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.84.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.84.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Zamanlamaya duyarlı dayanıklılık testlerinin birbirini etkilememesi için
+         koleksiyonlar paralel çalıştırılmaz (deterministik sonuç). -->
+    <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Distributed.Abstractions\Aegis.Resilience.Distributed.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.DependencyInjection\Aegis.Resilience.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Http\Aegis.Resilience.Extensions.Http.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Distributed.Redis\Aegis.Resilience.Distributed.Redis.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.HealthChecks\Aegis.Resilience.Extensions.HealthChecks.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Dashboard\Aegis.Resilience.Extensions.Dashboard.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.RateLimiting\Aegis.Resilience.RateLimiting.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Testing\Aegis.Resilience.Testing.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Telemetry\Aegis.Resilience.Extensions.Telemetry.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Caching\Aegis.Resilience.Extensions.Caching.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Data.SqlClient\Aegis.Resilience.Data.SqlClient.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.AspNetCore\Aegis.Resilience.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Extensions.Aspire\Aegis.Resilience.Extensions.Aspire.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Grpc\Aegis.Resilience.Grpc.csproj" />
+    <ProjectReference Include="..\..\src\Aegis.Resilience.Grpc.AspNetCore\Aegis.Resilience.Grpc.AspNetCore.csproj" />
+  </ItemGroup>
+
+</Project>

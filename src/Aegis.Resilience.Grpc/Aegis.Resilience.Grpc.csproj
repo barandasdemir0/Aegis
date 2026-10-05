@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis gRPC dayanıklılığı: istemci ve sunucu interceptor'ları. gRPC katmanında çalışır (HTTP katmanı gRPC hatasını göremez: durum trailer'dadır, yanıt HTTP 200'dür). gRPC A6 commit kuralı, tüm denemeleri kapsayan deadline, grpc-retry-pushback-ms, grpc-previous-rpc-attempts, retry bütçesi (throttling), unary ve sunucu akışı için retry/hedging, devre kesici, sunucu tarafında durum kodlu ret.</Description>
+    <PackageTags>$(PackageTags);grpc;interceptor</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Core.Api" Version="2.84.0" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.84.0" />
+  </ItemGroup>
+
+</Project>

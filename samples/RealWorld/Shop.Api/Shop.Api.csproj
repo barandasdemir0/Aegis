@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <!-- Aegis: kaynak kod değil, yerel akıştaki gerçek NuGet paketleri -->
+    <PackageReference Include="Aegis.Resilience.Extensions.DependencyInjection" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Http" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Dashboard" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.HealthChecks" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Aspire" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Telemetry" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Extensions.Caching" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Distributed.Redis" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.RateLimiting" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Data.SqlClient" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.AspNetCore" Version="$(AegisVersion)" />
+    <PackageReference Include="Aegis.Resilience.Grpc" Version="$(AegisVersion)" />
+
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="$(GrpcVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="10.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shop.Contracts\Shop.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Aegis ASP.NET Core sunucu tarafı koruma: gelen istek hız sınırlama (IP / istemci / kullanıcı bölümleme, uç nokta kuralları, çoklu periyot, beyaz liste, RateLimit-* başlıkları, Redis ile küme genelinde kota — AspNetCoreRateLimit eşdeğeri) ve uç nokta başına Aegis boru hattı (eşzamanlılık, zaman aşımı, devre kesici).</Description>
+    <!-- ASP.NET Core paylaşılan çerçevesine bağlıdır: yalnızca .NET 8+ -->
+    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <!-- IConfiguration.Bind çağrıları derleme anında üretilir: Native AOT / trimming ile uyumlu (yansıma yok). -->
+    <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+    <!-- SYSLIB1100/1101: bölümleme seçicisi ve özel red yanıtı gibi yalnızca koddan verilebilen temsilciler yapılandırmadan
+         bağlanamaz; bu kasıtlıdır (yansıma tabanlı bağlayıcı da bunları sessizce atlar). -->
+    <NoWarn>$(NoWarn);SYSLIB1100;SYSLIB1101</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Aegis.Resilience.Core\Aegis.Resilience.Core.csproj" />
+    <ProjectReference Include="..\Aegis.Resilience.Extensions.DependencyInjection\Aegis.Resilience.Extensions.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Aegis.Resilience.Distributed.Abstractions\Aegis.Resilience.Distributed.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>

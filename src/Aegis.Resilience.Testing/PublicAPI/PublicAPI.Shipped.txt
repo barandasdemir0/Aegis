@@ -1,0 +1,15 @@
+#nullable enable
+Aegis.Resilience.Testing.AegisPipelineDescriptor
+Aegis.Resilience.Testing.AegisPipelineDescriptor.FirstStrategy.get -> Aegis.Resilience.Testing.AegisStrategyDescriptor!
+Aegis.Resilience.Testing.AegisPipelineDescriptor.GetOptions<TOptions>() -> TOptions!
+Aegis.Resilience.Testing.AegisPipelineDescriptor.IsReloadable.get -> bool
+Aegis.Resilience.Testing.AegisPipelineDescriptor.Name.get -> string!
+Aegis.Resilience.Testing.AegisPipelineDescriptor.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Testing.AegisStrategyDescriptor!>!
+Aegis.Resilience.Testing.AegisPipelineTestingExtensions
+Aegis.Resilience.Testing.AegisStrategyDescriptor
+Aegis.Resilience.Testing.AegisStrategyDescriptor.Name.get -> string!
+Aegis.Resilience.Testing.AegisStrategyDescriptor.Options.get -> object?
+Aegis.Resilience.Testing.AegisStrategyDescriptor.StrategyInstance.get -> Aegis.Resilience.Core.Abstractions.IAegisStrategy!
+override Aegis.Resilience.Testing.AegisStrategyDescriptor.ToString() -> string!
+static Aegis.Resilience.Testing.AegisPipelineTestingExtensions.GetPipelineDescriptor(this Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> Aegis.Resilience.Testing.AegisPipelineDescriptor!
+static Aegis.Resilience.Testing.AegisPipelineTestingExtensions.GetPipelineDescriptor<TResult>(this Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>! pipeline) -> Aegis.Resilience.Testing.AegisPipelineDescriptor!

@@ -1,0 +1,43 @@
+<Project>
+  <!--
+    Eski hedefler (netstandard2.0, net462). Koşul hedef ADIYLA yazılır: TargetFrameworkIdentifier bu dosya içe
+    aktarıldığında henüz hesaplanmamıştır (boş); ona dayanan koşul tüm hedeflerde yanlışlıkla doğru çıkar.
+    - AEGIS_LEGACY sembolü tanımlanır (yalnızca davranış farkı olan yerlerde #if ile kullanılır).
+    - Dahili polyfill'ler her projeye bağlantı olarak derlenir (internal; derlemeler arası çakışmaz).
+    - net462 için System.Net.Http çerçeve derlemesi referanslanır.
+  -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0' Or '$(TargetFramework)' == 'net462'">
+    <AegisLegacyTarget>true</AegisLegacyTarget>
+    <DefineConstants>$(DefineConstants);AEGIS_LEGACY</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(AegisLegacyTarget)' == 'true'">
+    <Compile Include="$(MSBuildThisFileDirectory)Shared\Polyfills\**\*.cs" Link="Polyfills\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <!--
+    Genel API sözleşmesi (Microsoft.CodeAnalysis.PublicApiAnalyzers): her public API değişikliği PublicAPI.*.txt
+    dosyalarında görünür olmak zorundadır; kazara kırıcı değişiklik derlemeyi kırar (RS0016/RS0017, uyarı = hata).
+    - PublicAPI/: tüm hedeflerde ortak API.
+    - PublicAPI/modern (net8+) ve PublicAPI/legacy (netstandard2.0, net462): hedefe özgü farklar; yalnızca farkı
+      olan projede bulunur (ör. Core: .NET 8+'da varsayılan arayüz üyesi olan çalıştırma biçimleri eski hedeflerde
+      genişletme metodudur).
+    Yayında Unshipped girdileri Shipped dosyasına taşınır.
+    RS0026/RS0027 (isteğe bağlı parametreli aşırı yüklemeler) kapalıdır: bu kalıp Polly/Microsoft ile aynı ve zaten
+    yayında olan API'dir; kuralı uygulamak kırıcı değişiklik gerektirir.
+  -->
+  <PropertyGroup>
+    <NoWarn>$(NoWarn);RS0026;RS0027</NoWarn>
+    <AegisApiFlavor Condition="'$(AegisLegacyTarget)' == 'true'">legacy</AegisApiFlavor>
+    <AegisApiFlavor Condition="'$(AegisLegacyTarget)' != 'true'">modern</AegisApiFlavor>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="4.14.0" PrivateAssets="all" />
+    <AdditionalFiles Include="PublicAPI\PublicAPI.*.txt;PublicAPI\$(AegisApiFlavor)\PublicAPI.*.txt" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+</Project>

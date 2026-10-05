@@ -1,0 +1,61 @@
+#nullable enable
+Aegis.Resilience.Grpc.AegisGrpcClientBuilderExtensions
+Aegis.Resilience.Grpc.AegisGrpcClientInterceptor
+Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.AegisGrpcClientInterceptor(Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline, Aegis.Resilience.Grpc.AegisGrpcClientOptions? options = null) -> void
+Aegis.Resilience.Grpc.AegisGrpcClientOptions
+Aegis.Resilience.Grpc.AegisGrpcClientOptions.AegisGrpcClientOptions() -> void
+Aegis.Resilience.Grpc.AegisGrpcClientOptions.MapRejectionsToRpcException.get -> bool
+Aegis.Resilience.Grpc.AegisGrpcClientOptions.MapRejectionsToRpcException.set -> void
+Aegis.Resilience.Grpc.AegisGrpcClientOptions.MaxRetryBufferBytes.get -> long
+Aegis.Resilience.Grpc.AegisGrpcClientOptions.MaxRetryBufferBytes.set -> void
+Aegis.Resilience.Grpc.AegisGrpcMetadata
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.AegisGrpcStandardResilienceOptions() -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.AttemptTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.AttemptTimeout.set -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.CircuitBreaker.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions!
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.CircuitBreaker.set -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.Configure(Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder) -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.RateLimiter.get -> Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions!
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.RateLimiter.set -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.Retry.get -> Aegis.Resilience.Core.Strategies.Retry.RetryOptions!
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.Retry.set -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.TotalRequestTimeout.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.TotalRequestTimeout.set -> void
+Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions.Validate() -> void
+Aegis.Resilience.Grpc.AegisGrpcStatusMapper
+Aegis.Resilience.Grpc.AegisGrpcTransientErrors
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.AegisOutlierDetectionOptions() -> void
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.BaseEjectionTime.get -> System.TimeSpan
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.BaseEjectionTime.set -> void
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.ConsecutiveFailures.get -> int
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.ConsecutiveFailures.set -> void
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.MaxEjectionPercent.get -> int
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.MaxEjectionPercent.set -> void
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.MaxEjectionTime.get -> System.TimeSpan
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.MaxEjectionTime.set -> void
+Aegis.Resilience.Grpc.AegisOutlierDetectionOptions.Validate() -> void
+Aegis.Resilience.Grpc.AegisOutlierDetector
+Aegis.Resilience.Grpc.AegisOutlierDetector.AegisOutlierDetector(Aegis.Resilience.Grpc.AegisOutlierDetectionOptions? options = null, System.TimeProvider? timeProvider = null) -> void
+Aegis.Resilience.Grpc.AegisOutlierDetector.IsEjected(string! endpoint) -> bool
+Aegis.Resilience.Grpc.AegisOutlierDetector.Record(string! endpoint, Grpc.Core.StatusCode status, int knownEndpoints) -> void
+Aegis.Resilience.Grpc.AegisOutlierDetector.RecordFailure(string! endpoint, int knownEndpoints) -> void
+Aegis.Resilience.Grpc.AegisOutlierDetector.RecordSuccess(string! endpoint) -> void
+const Aegis.Resilience.Grpc.AegisGrpcMetadata.PreviousAttempts = "grpc-previous-rpc-attempts" -> string!
+const Aegis.Resilience.Grpc.AegisGrpcMetadata.RetryPushback = "grpc-retry-pushback-ms" -> string!
+override Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.AsyncClientStreamingCall<TRequest, TResponse>(Grpc.Core.Interceptors.ClientInterceptorContext<TRequest!, TResponse!> context, Grpc.Core.Interceptors.Interceptor.AsyncClientStreamingCallContinuation<TRequest!, TResponse!>! continuation) -> Grpc.Core.AsyncClientStreamingCall<TRequest!, TResponse!>!
+override Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.AsyncDuplexStreamingCall<TRequest, TResponse>(Grpc.Core.Interceptors.ClientInterceptorContext<TRequest!, TResponse!> context, Grpc.Core.Interceptors.Interceptor.AsyncDuplexStreamingCallContinuation<TRequest!, TResponse!>! continuation) -> Grpc.Core.AsyncDuplexStreamingCall<TRequest!, TResponse!>!
+override Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.AsyncServerStreamingCall<TRequest, TResponse>(TRequest! request, Grpc.Core.Interceptors.ClientInterceptorContext<TRequest!, TResponse!> context, Grpc.Core.Interceptors.Interceptor.AsyncServerStreamingCallContinuation<TRequest!, TResponse!>! continuation) -> Grpc.Core.AsyncServerStreamingCall<TResponse!>!
+override Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.AsyncUnaryCall<TRequest, TResponse>(TRequest! request, Grpc.Core.Interceptors.ClientInterceptorContext<TRequest!, TResponse!> context, Grpc.Core.Interceptors.Interceptor.AsyncUnaryCallContinuation<TRequest!, TResponse!>! continuation) -> Grpc.Core.AsyncUnaryCall<TResponse!>!
+override Aegis.Resilience.Grpc.AegisGrpcClientInterceptor.BlockingUnaryCall<TRequest, TResponse>(TRequest! request, Grpc.Core.Interceptors.ClientInterceptorContext<TRequest!, TResponse!> context, Grpc.Core.Interceptors.Interceptor.BlockingUnaryCallContinuation<TRequest!, TResponse!>! continuation) -> TResponse!
+static Aegis.Resilience.Grpc.AegisGrpcClientBuilderExtensions.AddAegisGrpcResilience(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!>! configure, Aegis.Resilience.Grpc.AegisGrpcClientOptions? clientOptions = null) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Grpc.AegisGrpcClientBuilderExtensions.AddStandardAegisGrpcResilience(this Microsoft.Extensions.DependencyInjection.IHttpClientBuilder! builder, System.Action<Aegis.Resilience.Grpc.AegisGrpcStandardResilienceOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IHttpClientBuilder!
+static Aegis.Resilience.Grpc.AegisGrpcStatusMapper.ToRpcException(System.Exception! exception) -> Grpc.Core.RpcException?
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.IsCircuitFailure(System.Exception! exception) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.IsServerFault(Grpc.Core.StatusCode statusCode) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.IsThrottledWithPushback(Grpc.Core.RpcException! exception) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.IsTransient(Grpc.Core.StatusCode statusCode) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.ServerForbidsRetry(Grpc.Core.Metadata? trailers) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.ShouldRetry(System.Exception! exception) -> bool
+static Aegis.Resilience.Grpc.AegisGrpcTransientErrors.TryGetPushback(Grpc.Core.Metadata? trailers, out System.TimeSpan? delay) -> bool

@@ -1,0 +1,910 @@
+#nullable enable
+Aegis.Resilience.Core.Abstractions.AegisCallbacks
+Aegis.Resilience.Core.Abstractions.AegisOptionsValidator
+Aegis.Resilience.Core.Abstractions.AegisPredicate
+Aegis.Resilience.Core.Abstractions.AegisPredicate.AegisPredicate() -> void
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.AegisPredicateBuilder() -> void
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.Handle<TException>() -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.Handle<TException>(System.Func<TException!, bool>! predicate) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.HandleAnyException() -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.HandleInner<TException>(System.Func<TException!, bool>? predicate = null) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.HandleResult<TResult>(System.Func<TResult, bool>! predicate) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.HandleResult<TResult>(TResult value, System.Collections.Generic.IEqualityComparer<TResult>? comparer = null) -> Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder!
+Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.ShouldHandle<TResult>(in Aegis.Resilience.Core.Abstractions.Outcome<TResult> outcome) -> bool
+Aegis.Resilience.Core.Abstractions.AegisStrategy
+Aegis.Resilience.Core.Abstractions.AegisStrategy.AegisStrategy() -> void
+Aegis.Resilience.Core.Abstractions.AegisStrategy.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext! context) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.AegisStrategy.GetElapsedTime(long startTimestamp) -> System.TimeSpan
+Aegis.Resilience.Core.Abstractions.AegisStrategy.GetTimestamp() -> long
+Aegis.Resilience.Core.Abstractions.AegisStrategy.Telemetry.get -> Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry!
+Aegis.Resilience.Core.Abstractions.AegisStrategy.TimeProvider.get -> System.TimeProvider!
+Aegis.Resilience.Core.Abstractions.AegisStrategy.UseTelemetry(string? pipelineName, Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions? options) -> void
+Aegis.Resilience.Core.Abstractions.AegisStrategy.UseTimeProvider(System.TimeProvider! timeProvider) -> void
+Aegis.Resilience.Core.Abstractions.AegisTypedPipelineExtensions
+Aegis.Resilience.Core.Abstractions.DiscardedResultDisposer
+Aegis.Resilience.Core.Abstractions.DynamicOptionsResolver
+Aegis.Resilience.Core.Abstractions.IAegisPipeline
+Aegis.Resilience.Core.Abstractions.IAegisPipeline.ExecuteAsync(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Abstractions.IAegisPipeline.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline.Name.get -> string!
+Aegis.Resilience.Core.Abstractions.IAegisPipeline.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Execute(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TResult>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> TResult
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Execute(System.Func<System.Threading.CancellationToken, TResult>! callback, System.Threading.CancellationToken cancellationToken) -> TResult
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Execute(System.Func<TResult>! callback) -> TResult
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Execute<TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, TResult>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> TResult
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteAsync(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteAsync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<TResult>>! callback, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteAsync<TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<TResult>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteAsync<TState>(System.Func<TState, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<TResult>>! callback, TState state, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteOutcomeAsync(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.ExecuteOutcomeAsync<TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Name.get -> string!
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>.Untyped.get -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder
+Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder.AddStrategy(Aegis.Resilience.Core.Abstractions.IAegisStrategy! strategy) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder.Build() -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder.Name.get -> string!
+Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Abstractions.IAegisStrategy
+Aegis.Resilience.Core.Abstractions.IAegisStrategy.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext! context) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Abstractions.IAegisStrategy.Name.get -> string!
+Aegis.Resilience.Core.Abstractions.Outcome
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.GetResultOrThrow() -> TResult
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.IsSuccess.get -> bool
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.Outcome() -> void
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.Result.get -> TResult?
+Aegis.Resilience.Core.Abstractions.Outcome<TResult>.ThrowIfException() -> void
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>.AttemptNumber.get -> int
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>.Outcome.get -> Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>.OutcomeArguments() -> void
+Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult>.OutcomeArguments(Aegis.Resilience.Core.Abstractions.Outcome<TResult> outcome, Aegis.Resilience.Core.Context.AegisContext! context, int attemptNumber) -> void
+Aegis.Resilience.Core.Abstractions.PredicateArguments
+Aegis.Resilience.Core.Abstractions.PredicateArguments.AttemptNumber.get -> int
+Aegis.Resilience.Core.Abstractions.PredicateArguments.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Abstractions.PredicateArguments.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Abstractions.PredicateArguments.PredicateArguments() -> void
+Aegis.Resilience.Core.Abstractions.PredicateArguments.PredicateArguments(System.Exception? exception, object? result, Aegis.Resilience.Core.Context.AegisContext! context, int attemptNumber) -> void
+Aegis.Resilience.Core.Abstractions.PredicateArguments.Result.get -> object?
+Aegis.Resilience.Core.Context.AegisContext
+Aegis.Resilience.Core.Context.AegisContext.AegisContext(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? pipelineName = null) -> void
+Aegis.Resilience.Core.Context.AegisContext.CancellationToken.get -> System.Threading.CancellationToken
+Aegis.Resilience.Core.Context.AegisContext.CancellationToken.set -> void
+Aegis.Resilience.Core.Context.AegisContext.ContinueOnCapturedContext.get -> bool
+Aegis.Resilience.Core.Context.AegisContext.ContinueOnCapturedContext.set -> void
+Aegis.Resilience.Core.Context.AegisContext.CorrelationId.get -> string!
+Aegis.Resilience.Core.Context.AegisContext.CorrelationId.set -> void
+Aegis.Resilience.Core.Context.AegisContext.CreateChild(System.Threading.CancellationToken cancellationToken) -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Context.AegisContext.GetPropertyOrDefault<T>(Aegis.Resilience.Core.Context.AegisPropertyKey<T> key, T defaultValue) -> T
+Aegis.Resilience.Core.Context.AegisContext.MergePropertiesFrom(Aegis.Resilience.Core.Context.AegisContext! source) -> void
+Aegis.Resilience.Core.Context.AegisContext.OperationKey.get -> string?
+Aegis.Resilience.Core.Context.AegisContext.OperationKey.set -> void
+Aegis.Resilience.Core.Context.AegisContext.PipelineName.get -> string?
+Aegis.Resilience.Core.Context.AegisContext.PipelineName.set -> void
+Aegis.Resilience.Core.Context.AegisContext.Properties.get -> System.Collections.Generic.IDictionary<string!, object?>!
+Aegis.Resilience.Core.Context.AegisContext.Reset(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? pipelineName = null) -> void
+Aegis.Resilience.Core.Context.AegisContext.SetProperty<T>(Aegis.Resilience.Core.Context.AegisPropertyKey<T> key, T value) -> void
+Aegis.Resilience.Core.Context.AegisContext.SetProperty<T>(string! key, T value) -> void
+Aegis.Resilience.Core.Context.AegisContext.TryGetProperty<T>(Aegis.Resilience.Core.Context.AegisPropertyKey<T> key, out T? value) -> bool
+Aegis.Resilience.Core.Context.AegisContext.TryGetProperty<T>(string! key, out T? value) -> bool
+Aegis.Resilience.Core.Context.AegisContextKeys
+Aegis.Resilience.Core.Context.AegisContextPool
+Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>
+Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.AegisPropertyKey() -> void
+Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.AegisPropertyKey(string! key) -> void
+Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.Equals(Aegis.Resilience.Core.Context.AegisPropertyKey<TValue> other) -> bool
+Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.Key.get -> string!
+Aegis.Resilience.Core.Exceptions.AegisException
+Aegis.Resilience.Core.Exceptions.AegisException.AegisException(string! message) -> void
+Aegis.Resilience.Core.Exceptions.AegisException.AegisException(string! message, System.Exception! innerException) -> void
+Aegis.Resilience.Core.Exceptions.AegisException.TelemetrySource.get -> Aegis.Resilience.Core.Telemetry.AegisTelemetrySource?
+Aegis.Resilience.Core.Exceptions.AegisException.TelemetrySource.init -> void
+Aegis.Resilience.Core.Exceptions.AegisTimeoutException
+Aegis.Resilience.Core.Exceptions.AegisTimeoutException.AegisTimeoutException(string! message, System.TimeSpan timeout) -> void
+Aegis.Resilience.Core.Exceptions.AegisTimeoutException.Timeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Exceptions.BrokenCircuitException
+Aegis.Resilience.Core.Exceptions.BrokenCircuitException.BrokenCircuitException(string! message) -> void
+Aegis.Resilience.Core.Exceptions.BrokenCircuitException.BrokenCircuitException(string! message, System.Exception! innerException) -> void
+Aegis.Resilience.Core.Exceptions.BrokenCircuitException.BrokenCircuitException(string! message, System.TimeSpan? retryAfter) -> void
+Aegis.Resilience.Core.Exceptions.BrokenCircuitException.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.Core.Exceptions.ChaosInjectedException
+Aegis.Resilience.Core.Exceptions.ChaosInjectedException.ChaosInjectedException(string! message) -> void
+Aegis.Resilience.Core.Exceptions.ChaosInjectedException.ChaosInjectedException(string! message, System.Exception! innerException) -> void
+Aegis.Resilience.Core.Exceptions.IsolatedCircuitException
+Aegis.Resilience.Core.Exceptions.IsolatedCircuitException.IsolatedCircuitException(string! message) -> void
+Aegis.Resilience.Core.Exceptions.RateLimitRejectedException
+Aegis.Resilience.Core.Exceptions.RateLimitRejectedException.RateLimitRejectedException(string! message) -> void
+Aegis.Resilience.Core.Exceptions.RateLimitRejectedException.RateLimitRejectedException(string! message, System.TimeSpan? retryAfter) -> void
+Aegis.Resilience.Core.Exceptions.RateLimitRejectedException.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.Core.Pipeline.AegisPipeline
+Aegis.Resilience.Core.Pipeline.AegisPipeline.AegisPipeline(string! name, System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>! strategies) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.AegisPipeline(string! name, System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>! strategies, Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions? telemetryOptions) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Dispose() -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute(System.Action! callback) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute(System.Action<Aegis.Resilience.Core.Context.AegisContext!>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute(System.Action<System.Threading.CancellationToken>! callback, System.Threading.CancellationToken cancellationToken) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, TResult>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> TResult
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TResult>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> TResult
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute<TResult>(System.Func<System.Threading.CancellationToken, TResult>! callback, System.Threading.CancellationToken cancellationToken) -> TResult
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute<TResult>(System.Func<TResult>! callback) -> TResult
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Execute<TState>(System.Action<Aegis.Resilience.Core.Context.AegisContext!, TState>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> void
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.ValueTask>! callback, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<TResult>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TResult, TState>(System.Func<TState, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<TResult>>! callback, TState state, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TResult>(System.Func<System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<TResult>>! callback, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteAsync<TState>(System.Func<TState, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask>! callback, TState state, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteOutcomeAsync<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.ExecuteOutcomeAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+Aegis.Resilience.Core.Pipeline.AegisPipeline.InstanceName.get -> string?
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Name.get -> string!
+Aegis.Resilience.Core.Pipeline.AegisPipeline.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.AddStrategy(Aegis.Resilience.Core.Abstractions.IAegisStrategy! strategy) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.AegisPipelineBuilder(string! name = "Default") -> void
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.Build() -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.InstanceName.get -> string?
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.InstanceName.set -> void
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.Name.get -> string!
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.TelemetryOptions.get -> Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions?
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.TelemetryOptions.set -> void
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.TimeProvider.get -> System.TimeProvider?
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilder.TimeProvider.set -> void
+Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions
+Aegis.Resilience.Core.Pipeline.PipelineCompositionExtensions
+Aegis.Resilience.Core.Pipeline.PipelineStrategyAdapter
+Aegis.Resilience.Core.Pipeline.PipelineStrategyAdapter.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext! context) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.PipelineStrategyAdapter.InnerPipeline.get -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Core.Pipeline.PipelineStrategyAdapter.Name.get -> string!
+Aegis.Resilience.Core.Pipeline.PipelineStrategyAdapter.PipelineStrategyAdapter(Aegis.Resilience.Core.Abstractions.IAegisPipeline! inner) -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.AddOwnedDisposable(System.IDisposable! disposable) -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Current.get -> T!
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Dispose() -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.LastReloadError.get -> System.Exception?
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Lease
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Lease.Dispose() -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Lease.Lease() -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Lease.Value.get -> T!
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Reload() -> bool
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.ReloadCount.get -> int
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Reloadable(System.Func<T!>! factory) -> void
+Aegis.Resilience.Core.Pipeline.Reloadable<T>.Reloaded -> System.Action<System.Exception?>?
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.AddOwnedDisposable(System.IDisposable! disposable) -> void
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Current.get -> Aegis.Resilience.Core.Abstractions.IAegisPipeline!
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Dispose() -> void
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ExecuteAsync(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ExecuteAsync<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<TResult>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ExecuteAsync<TResult>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<TResult>>! callback, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<TResult>
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ExecuteOutcomeAsync<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>>! callback, TState state, Aegis.Resilience.Core.Context.AegisContext? context = null) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.LastReloadError.get -> System.Exception?
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Name.get -> string!
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Reload() -> bool
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ReloadCount.get -> int
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.ReloadableAegisPipeline(string! name, System.Func<Aegis.Resilience.Core.Abstractions.IAegisPipeline!>! factory) -> void
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Reloaded -> System.Action<Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline!, System.Exception?>?
+Aegis.Resilience.Core.Pipeline.ReloadableAegisPipeline.Strategies.get -> System.Collections.Generic.IReadOnlyList<Aegis.Resilience.Core.Abstractions.IAegisStrategy!>!
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions.AegisCacheEntryOptions() -> void
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions.AegisCacheEntryOptions(System.TimeSpan ttl, bool slidingExpiration) -> void
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions.SlidingExpiration.get -> bool
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions.Ttl.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>.AegisCacheLookup() -> void
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>.Found.get -> bool
+Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>.Value.get -> T?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.CacheNulls.get -> bool
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.CacheNulls.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.CacheOptions() -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.KeySelector.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, string!>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.KeySelector.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.MaxEntries.get -> int
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.MaxEntries.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheError.get -> System.Action<string!, System.Exception!>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheError.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheHit.get -> System.Action<string!, object?>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheHit.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheMiss.get -> System.Action<string!>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OnCacheMiss.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Cache.CacheOptions!>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.SlidingExpiration.get -> bool
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.SlidingExpiration.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.Store.get -> Aegis.Resilience.Core.Strategies.Cache.IAegisCacheStore?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.Store.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.Ttl.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.Ttl.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.TtlGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?, System.TimeSpan>?
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.TtlGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.CacheStrategy(Aegis.Resilience.Core.Strategies.Cache.CacheOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.Clear() -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.Dispose() -> void
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.EntryCount.get -> int
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.Invalidate(string! key) -> bool
+Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.InvalidateAsync(string! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Strategies.Cache.IAegisCacheStore
+Aegis.Resilience.Core.Strategies.Cache.IAegisCacheStore.RemoveAsync(string! key, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Strategies.Cache.IAegisCacheStore.SetAsync<T>(string! key, T value, Aegis.Resilience.Core.Strategies.Cache.AegisCacheEntryOptions options, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Strategies.Cache.IAegisCacheStore.TryGetAsync<T>(string! key, System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>>
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.ChaosInjectionArguments() -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Context.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Exception.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Kind.get -> Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Kind.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Latency.get -> System.TimeSpan?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Latency.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Result.get -> object?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments.Result.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind.Behavior = 0 -> Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind.Fault = 3 -> Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind.Latency = 1 -> Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind.Outcome = 2 -> Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionKind
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.BehaviorGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.BehaviorGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.ChaosOptions() -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Enabled.get -> bool
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Enabled.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.EnabledGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<bool>>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.EnabledGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.FaultGenerator.get -> System.Func<System.Exception!>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.FaultGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.InjectionRate.get -> double
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.InjectionRate.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.InjectionRateGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<double>>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.InjectionRateGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Latency.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Latency.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.LatencyGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<System.TimeSpan>>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.LatencyGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OnInjected.get -> System.Func<Aegis.Resilience.Core.Strategies.Chaos.ChaosInjectionArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OnInjected.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OutcomeGenerator.get -> Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.OutcomeGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Randomizer.get -> System.Func<double>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Randomizer.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.ResultGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?>?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.ResultGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.AddException(System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Exception!>! factory, int weight = 100) -> Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator!
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.AddException<TException>(int weight = 100) -> Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator!
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.AddResult(System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?>! factory, int weight = 100) -> Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator!
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.ChaosOutcome() -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.ChaosOutcome(object? Result, System.Exception? Exception) -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Deconstruct(out object? Result, out System.Exception? Exception) -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Equals(Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome other) -> bool
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Exception.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Result.get -> object?
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Result.init -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcomeGenerator() -> void
+Aegis.Resilience.Core.Strategies.Chaos.ChaosStrategy
+Aegis.Resilience.Core.Strategies.Chaos.ChaosStrategy.ChaosStrategy(Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions! options) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.BreakDuration.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.BreakDuration.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.CircuitBreakerEventContext() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Context.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Exception.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.HalfOpenAttempts.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.HalfOpenAttempts.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Health.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Health.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.IsManual.get -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.IsManual.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.NewState.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.NewState.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.OldState.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.OldState.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Result.get -> object?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Result.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.CircuitBreakerManualControl(bool isIsolated = false) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.CircuitCount.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.CloseAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.IsIsolated.get -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.IsolateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl.Register(Aegis.Resilience.Core.Strategies.CircuitBreaker.IManuallyControllableCircuit! circuit) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode.Disabled = 2 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode.Enforce = 0 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode.Shadow = 1 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.CircuitBreakerOptions() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.ConsecutiveFailureThreshold.get -> int?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.ConsecutiveFailureThreshold.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.HalfOpenSuccessThreshold.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.HalfOpenSuccessThreshold.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.Mode.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerMode
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.Mode.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions!>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SamplingCount.get -> int?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SamplingCount.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SlowCallDurationThreshold.get -> System.TimeSpan?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SlowCallDurationThreshold.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SlowCallRateThreshold.get -> double
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.SlowCallRateThreshold.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.BreakDuration.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.BreakDuration.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.BreakDurationGenerator.get -> System.Func<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!, System.TimeSpan?>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.BreakDurationGenerator.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.CircuitBreakerOptionsBase() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.FailureRatio.get -> double
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.FailureRatio.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.IsFailure(System.Exception! exception) -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.IsFailure(System.Exception! exception, System.Threading.CancellationToken callerToken) -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.IsFailureResult<TResult>(TResult result) -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.IsFailureThresholdExceeded(int successCount, int failureCount) -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ManualControl.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerManualControl?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ManualControl.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.MinimumThroughput.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.MinimumThroughput.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnClosed.get -> System.Func<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnClosed.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnHalfOpened.get -> System.Func<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnHalfOpened.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnOpened.get -> System.Func<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.OnOpened.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ResolveBreakDuration(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext! openingEvent) -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.SamplingDuration.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.SamplingDuration.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandle.get -> System.Predicate<System.Exception!>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandle.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandleOutcome.get -> Aegis.Resilience.Core.Abstractions.AegisPredicate?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandleOutcome.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandleResult.get -> System.Func<object?, bool>?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ShouldHandleResult.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.StateProvider.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider?
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.StateProvider.set -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptionsBase.ValidateCommon(string! optionsName) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerRules
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider.CircuitBreakerStateProvider() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider.CircuitState.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider.Initialize(Aegis.Resilience.Core.Strategies.CircuitBreaker.IObservableCircuitState! circuit) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStateProvider.IsInitialized.get -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.CircuitBreakerStrategy(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions! options) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.Isolate() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.Reset() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.State.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.CircuitHealth() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.CircuitHealth(int SuccessCount, int FailureCount, int SlowCallCount) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.Deconstruct(out int SuccessCount, out int FailureCount, out int SlowCallCount) -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.Equals(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth other) -> bool
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.FailureCount.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.FailureCount.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.FailureRate.get -> double
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.SlowCallCount.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.SlowCallCount.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.SuccessCount.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.SuccessCount.init -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.Throughput.get -> int
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState.Closed = 0 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState.HalfOpen = 2 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState.Isolated = 3 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState.Open = 1 -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IManuallyControllableCircuit
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IManuallyControllableCircuit.CloseCircuitAsync(System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IManuallyControllableCircuit.IsolateCircuitAsync(System.Threading.CancellationToken cancellationToken) -> System.Threading.Tasks.ValueTask
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IManuallyControllableCircuit.IsolateOnRegistration() -> void
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IObservableCircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IObservableCircuitState.LastKnownState.get -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IObservableSharedState
+Aegis.Resilience.Core.Strategies.CircuitBreaker.IObservableSharedState.IsSharedStateAvailable.get -> bool
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.KeySelector.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, string?>?
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.KeySelector.set -> void
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions!>?
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.RequestCollapserOptions() -> void
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserStrategy
+Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserStrategy.RequestCollapserStrategy(Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Context.init -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Exception.init -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.FallbackArguments() -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Result.get -> object?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments.Result.init -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.FallbackAction.get -> System.Func<Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments!, System.Threading.Tasks.ValueTask<object?>>?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.FallbackAction.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.FallbackHandler.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Exception!, System.Threading.Tasks.ValueTask<object?>>?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.FallbackHandler.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.FallbackOptions() -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.OnFallback.get -> System.Func<Aegis.Resilience.Core.Strategies.Fallback.FallbackArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.OnFallback.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandle.get -> System.Predicate<System.Exception!>?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandle.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandleOutcome.get -> Aegis.Resilience.Core.Abstractions.AegisPredicate?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandleOutcome.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandleResult.get -> System.Func<object?, bool>?
+Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions.ShouldHandleResult.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.FallbackStrategy
+Aegis.Resilience.Core.Strategies.Fallback.FallbackStrategy.FallbackStrategy(Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.FreshnessDuration.get -> System.TimeSpan?
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.FreshnessDuration.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.KeyGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, string!>?
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.KeyGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.MaxCacheEntries.get -> int
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.MaxCacheEntries.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.MaxStaleAge.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.MaxStaleAge.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.ShouldHandle.get -> System.Predicate<System.Exception!>?
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.ShouldHandle.set -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.StaleFallbackOptions() -> void
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackStrategy
+Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackStrategy.StaleFallbackStrategy(Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments.AttemptNumber.get -> int
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments.AttemptNumber.init -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments.Context.init -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments.HedgingAttemptArguments() -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ActionGenerator.get -> System.Func<Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments!, System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask<object?>>?>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ActionGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.Budget.get -> Aegis.Resilience.Core.Strategies.Retry.RetryBudget?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.Budget.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.DelayGenerator.get -> System.Func<Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments!, System.Threading.Tasks.ValueTask<System.TimeSpan>>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.DelayGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.HedgingDelay.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.HedgingDelay.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.HedgingOptions() -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.MaxHedgedAttempts.get -> int
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.MaxHedgedAttempts.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.OnHedging.get -> System.Func<Aegis.Resilience.Core.Strategies.Hedging.HedgingAttemptArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.OnHedging.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions!>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandle.get -> System.Predicate<System.Exception!>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandle.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandleOutcome.get -> Aegis.Resilience.Core.Abstractions.AegisPredicate?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandleOutcome.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandleResult.get -> System.Func<object?, bool>?
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.ShouldHandleResult.set -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Hedging.HedgingStrategy
+Aegis.Resilience.Core.Strategies.Hedging.HedgingStrategy.HedgingStrategy(Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions! options) -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.AdaptiveConcurrencyOptions() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.InitialConcurrency.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.InitialConcurrency.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MaxConcurrency.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MaxConcurrency.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MinConcurrency.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MinConcurrency.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MinRttJitterToleranceMs.get -> double
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.MinRttJitterToleranceMs.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.OnRejected.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.QueueTimeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.QueueTimeout.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.RttJitterToleranceRatio.get -> double
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.RttJitterToleranceRatio.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.SmoothingFactor.get -> double
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.SmoothingFactor.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.WarmupSamples.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions.WarmupSamples.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy.ActiveExecutions.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy.AdaptiveConcurrencyStrategy(Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions! options) -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy.CurrentLimit.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.ConcurrencyLimiterOptions() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.MaxConcurrentExecutions.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.MaxConcurrentExecutions.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.OnRejected.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.QueueLimit.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.QueueLimit.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.QueueTimeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.QueueTimeout.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy.ConcurrencyLimiterStrategy(Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions! options) -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy.CurrentLimit.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy.Dispose() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.DefaultOptions.get -> Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions!
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.DefaultOptions.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.MaxPartitions.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.MaxPartitions.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.OptionsFactory.get -> System.Func<string!, Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.OptionsFactory.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.PartitionKeySelector.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, string!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.PartitionKeySelector.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.PartitionedRateLimiterOptions() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.Clear() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.Invalidate(string! partitionKey) -> bool
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.PartitionCount.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.PartitionedRateLimiterStrategy(Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions! options) -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.OnRejected.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.PermitLimit.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.PermitLimit.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.QueueTimeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.QueueTimeout.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.RateLimiterOptions() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.Window.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions.Window.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.Context.init -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.Metadata.get -> System.Collections.Generic.IReadOnlyList<System.Collections.Generic.KeyValuePair<string!, object?>>?
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.Metadata.init -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.RateLimiterRejectedArguments() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.RetryAfter.get -> System.TimeSpan?
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.RetryAfter.init -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.StrategyName.get -> string!
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments.StrategyName.init -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejection
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterStrategy
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterStrategy.AvailableTokens.get -> double
+Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterStrategy.RateLimiterStrategy(Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions! options) -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.OnRejected.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.OnRejected.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions!>?
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.PermitLimit.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.PermitLimit.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.QueueTimeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.QueueTimeout.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.SegmentsPerWindow.get -> int
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.SegmentsPerWindow.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.SlidingWindowRateLimiterOptions() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.Window.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions.Window.set -> void
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterStrategy
+Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterStrategy.SlidingWindowRateLimiterStrategy(Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType.Constant = 0 -> Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType.DecorrelatedJitter = 3 -> Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType.Exponential = 2 -> Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType.Linear = 1 -> Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.AttemptNumber.get -> int
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.AttemptNumber.init -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Context.init -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Exception.init -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Result.get -> object?
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.Result.init -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.RetryAttemptContext() -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.RetryDelay.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext.RetryDelay.init -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.CanRetry.get -> bool
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.MaxTokens.get -> double
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.RecordFailure() -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.RecordSuccess() -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.RetryBudget(double maxTokens = 10, double tokenRatio = 0.1) -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.TokenRatio.get -> double
+Aegis.Resilience.Core.Strategies.Retry.RetryBudget.Tokens.get -> double
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.BackoffType.get -> Aegis.Resilience.Core.Strategies.Retry.DelayBackoffType
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.BackoffType.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Budget.get -> Aegis.Resilience.Core.Strategies.Retry.RetryBudget?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Budget.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Delay.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Delay.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.DelayGenerator.get -> System.Func<Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext!, System.Threading.Tasks.ValueTask<System.TimeSpan?>>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.DelayGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.MaxDelay.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.MaxDelay.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.MaxRetryAttempts.get -> int
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.MaxRetryAttempts.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.OnRetry.get -> System.Func<Aegis.Resilience.Core.Strategies.Retry.RetryAttemptContext!, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.OnRetry.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Retry.RetryOptions!>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Randomizer.get -> System.Func<double>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Randomizer.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.RetryOptions() -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandle.get -> System.Predicate<System.Exception!>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandle.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandleOutcome.get -> Aegis.Resilience.Core.Abstractions.AegisPredicate?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandleOutcome.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandleResult.get -> System.Func<object?, bool>?
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldHandleResult.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldRetryAfterHeader.get -> bool
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.ShouldRetryAfterHeader.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.UseJitter.get -> bool
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.UseJitter.set -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Retry.RetryStrategy
+Aegis.Resilience.Core.Strategies.Retry.RetryStrategy.RetryStrategy(Aegis.Resilience.Core.Strategies.Retry.RetryOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.Mode.get -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.Mode.set -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.OnTimeout.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.TimeSpan, System.Threading.Tasks.ValueTask>?
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.OnTimeout.set -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.OptionsProvider.get -> System.Func<Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!>?
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.OptionsProvider.set -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.Timeout.get -> System.TimeSpan
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.Timeout.set -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.TimeoutGenerator.get -> System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.TimeSpan?>?
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.TimeoutGenerator.set -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.TimeoutOptions() -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions.Validate() -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategy
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategy.TimeoutStrategy(Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions! options) -> void
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode.Optimistic = 0 -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode
+Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode.Pessimistic = 1 -> Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategyMode
+Aegis.Resilience.Core.Telemetry.AegisEnrichmentContext
+Aegis.Resilience.Core.Telemetry.AegisEnrichmentContext.Tags.get -> System.Collections.Generic.List<System.Collections.Generic.KeyValuePair<string!, object?>>!
+Aegis.Resilience.Core.Telemetry.AegisEnrichmentContext.TelemetryEvent.get -> Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent
+Aegis.Resilience.Core.Telemetry.AegisEventNames
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.Critical = 5 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.Debug = 1 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.Error = 4 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.Information = 2 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.None = 0 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisEventSeverity.Warning = 3 -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.InstanceName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.IsAttemptEnabled.get -> bool
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.IsEnabled.get -> bool
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.IsPipelineEnabled.get -> bool
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.PipelineName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.Report(string! eventName, Aegis.Resilience.Core.Telemetry.AegisEventSeverity severity, Aegis.Resilience.Core.Context.AegisContext! context, System.Exception? exception = null, object? result = null, object? arguments = null) -> void
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.ReportAttempt(Aegis.Resilience.Core.Context.AegisContext! context, int attemptNumber, System.TimeSpan duration, bool handled, System.Exception? exception = null, object? result = null) -> void
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.ReportPipelineExecuted(Aegis.Resilience.Core.Context.AegisContext! context, System.TimeSpan duration, System.Exception? exception) -> void
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.Source.get -> Aegis.Resilience.Core.Telemetry.AegisTelemetrySource!
+Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.StrategyName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetry
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.AegisTelemetryEvent() -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.AegisTelemetryEvent(string! eventName, Aegis.Resilience.Core.Telemetry.AegisEventSeverity severity, string? pipelineName, string? strategyName, Aegis.Resilience.Core.Context.AegisContext! context, System.Exception? exception = null, object? result = null, object? arguments = null, int attemptNumber = -1, System.TimeSpan? duration = null, bool? handled = null) -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Arguments.get -> object?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.AttemptNumber.get -> int
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Context.get -> Aegis.Resilience.Core.Context.AegisContext!
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Duration.get -> System.TimeSpan?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.EventName.get -> string!
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Exception.get -> System.Exception?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Handled.get -> bool?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.PipelineInstance.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.PipelineInstance.init -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.PipelineName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Result.get -> object?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.Severity.get -> Aegis.Resilience.Core.Telemetry.AegisEventSeverity
+Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent.StrategyName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryListener
+Aegis.Resilience.Core.Telemetry.AegisTelemetryListener.AegisTelemetryListener() -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions.AegisTelemetryOptions() -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions.Listeners.get -> System.Collections.Generic.IList<Aegis.Resilience.Core.Telemetry.AegisTelemetryListener!>!
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions.MeteringEnrichers.get -> System.Collections.Generic.IList<System.Action<Aegis.Resilience.Core.Telemetry.AegisEnrichmentContext!>!>!
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions.SeverityProvider.get -> System.Func<Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent, Aegis.Resilience.Core.Telemetry.AegisEventSeverity>?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions.SeverityProvider.set -> void
+Aegis.Resilience.Core.Telemetry.AegisTelemetrySource
+Aegis.Resilience.Core.Telemetry.AegisTelemetrySource.PipelineInstanceName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetrySource.PipelineName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetrySource.StrategyName.get -> string?
+Aegis.Resilience.Core.Telemetry.AegisTelemetryTags
+abstract Aegis.Resilience.Core.Abstractions.AegisPredicate.ShouldHandleAsync<TResult>(Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult> args) -> System.Threading.Tasks.ValueTask<bool>
+abstract Aegis.Resilience.Core.Abstractions.AegisStrategy.ExecuteCoreAsync<TResult, TState>(System.Func<Aegis.Resilience.Core.Context.AegisContext!, TState, System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>>! callback, Aegis.Resilience.Core.Context.AegisContext! context, TState state) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+abstract Aegis.Resilience.Core.Abstractions.AegisStrategy.Name.get -> string!
+abstract Aegis.Resilience.Core.Telemetry.AegisTelemetryListener.Write(in Aegis.Resilience.Core.Telemetry.AegisTelemetryEvent telemetryEvent) -> void
+const Aegis.Resilience.Core.Context.AegisContextKeys.CacheKey = "CacheKey" -> string!
+const Aegis.Resilience.Core.Context.AegisContextKeys.HttpRequest = "Aegis.Http.Request" -> string!
+const Aegis.Resilience.Core.Context.AegisContextKeys.PartitionKey = "PartitionKey" -> string!
+const Aegis.Resilience.Core.Context.AegisContextKeys.RetryAfterDelay = "Aegis.Http.RetryAfterDelay" -> string!
+const Aegis.Resilience.Core.Context.AegisContextKeys.SuppressAdditionalAttempts = "Aegis.SuppressAdditionalAttempts" -> string!
+const Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions.IsStaleDataKey = "Aegis_IsStaleData" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.ChaosOnBehavior = "Chaos.OnBehavior" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.ChaosOnFault = "Chaos.OnFault" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.ChaosOnLatency = "Chaos.OnLatency" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.ChaosOnOutcome = "Chaos.OnOutcome" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.ExecutionAttempt = "ExecutionAttempt" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnCacheHit = "OnCacheHit" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnCacheMiss = "OnCacheMiss" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnCircuitClosed = "OnCircuitClosed" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnCircuitHalfOpened = "OnCircuitHalfOpened" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnCircuitOpened = "OnCircuitOpened" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnFallback = "OnFallback" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnHedging = "OnHedging" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnRateLimiterRejected = "OnRateLimiterRejected" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnRequestCollapsed = "OnRequestCollapsed" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnRetry = "OnRetry" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnRetryBudgetExhausted = "OnRetryBudgetExhausted" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnStaleFallback = "OnStaleFallback" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.OnTimeout = "OnTimeout" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.PipelineExecuted = "PipelineExecuted" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisEventNames.PipelineExecuting = "PipelineExecuting" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetry.ActivitySourceName = "Aegis" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetry.MeterName = "Aegis" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetry.MeterVersion = "1.0.0" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.AttemptHandled = "attempt.handled" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.AttemptNumber = "attempt.number" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.EventName = "event.name" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.EventSeverity = "event.severity" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.ExceptionType = "exception.type" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.OperationKey = "operation.key" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.PipelineInstance = "pipeline.instance" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.PipelineName = "pipeline.name" -> string!
+const Aegis.Resilience.Core.Telemetry.AegisTelemetryTags.StrategyName = "strategy.name" -> string!
+override Aegis.Resilience.Core.Abstractions.AegisPredicateBuilder.ShouldHandleAsync<TResult>(Aegis.Resilience.Core.Abstractions.OutcomeArguments<TResult> args) -> System.Threading.Tasks.ValueTask<bool>
+override Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.Equals(object? obj) -> bool
+override Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.GetHashCode() -> int
+override Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.ToString() -> string!
+override Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Cache.CacheStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.GetHashCode() -> int
+override Aegis.Resilience.Core.Strategies.Chaos.ChaosStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Chaos.ChaosStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.GetHashCode() -> int
+override Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Fallback.FallbackStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Fallback.FallbackStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Hedging.HedgingStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Hedging.HedgingStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Retry.RetryStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Retry.RetryStrategy.Options.get -> object?
+override Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategy.Name.get -> string!
+override Aegis.Resilience.Core.Strategies.Timeout.TimeoutStrategy.Options.get -> object?
+static Aegis.Resilience.Core.Abstractions.AegisCallbacks.InvokeSafely(System.Action? callback, string! callbackName) -> void
+static Aegis.Resilience.Core.Abstractions.AegisCallbacks.InvokeSafelyAsync<TArgs>(System.Func<TArgs, System.Threading.Tasks.ValueTask>? callback, TArgs args, string! callbackName) -> System.Threading.Tasks.ValueTask
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.AtLeast(int value, int min, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.InRange(double value, double min, double max, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.NonNegative(System.TimeSpan value, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.NonNegative(int value, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.Positive(System.TimeSpan value, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisOptionsValidator.PositiveOrInfinite(System.TimeSpan value, string! optionsType, string? name = null) -> void
+static Aegis.Resilience.Core.Abstractions.AegisPredicate.Create(System.Func<Aegis.Resilience.Core.Abstractions.PredicateArguments, System.Threading.Tasks.ValueTask<bool>>! predicate) -> Aegis.Resilience.Core.Abstractions.AegisPredicate!
+static Aegis.Resilience.Core.Abstractions.AegisPredicate.Create(System.Func<Aegis.Resilience.Core.Abstractions.PredicateArguments, bool>! predicate) -> Aegis.Resilience.Core.Abstractions.AegisPredicate!
+static Aegis.Resilience.Core.Abstractions.AegisTypedPipelineExtensions.AsTyped<TResult>(this Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>!
+static Aegis.Resilience.Core.Abstractions.AegisTypedPipelineExtensions.Build<TResult>(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder) -> Aegis.Resilience.Core.Abstractions.IAegisPipeline<TResult>!
+static Aegis.Resilience.Core.Abstractions.DiscardedResultDisposer.Dispose(object? result) -> void
+static Aegis.Resilience.Core.Abstractions.DiscardedResultDisposer.DisposeAsync(object? result) -> System.Threading.Tasks.ValueTask
+static Aegis.Resilience.Core.Abstractions.DynamicOptionsResolver.Resolve<TOptions>(TOptions! staticOptions, System.Func<TOptions!>? provider, System.Action<TOptions!>! validate, ref TOptions? lastGood) -> TOptions!
+static Aegis.Resilience.Core.Abstractions.Outcome.FromException<TResult>(System.Exception! exception) -> Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+static Aegis.Resilience.Core.Abstractions.Outcome.FromExceptionAsValueTask<TResult>(System.Exception! exception) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+static Aegis.Resilience.Core.Abstractions.Outcome.FromResult<TResult>(TResult result) -> Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+static Aegis.Resilience.Core.Abstractions.Outcome.FromResultAsValueTask<TResult>(TResult result) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+static Aegis.Resilience.Core.Abstractions.Outcome<TResult>.FromException(System.Exception! exception) -> Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+static Aegis.Resilience.Core.Abstractions.Outcome<TResult>.FromResult(TResult result) -> Aegis.Resilience.Core.Abstractions.Outcome<TResult>
+static Aegis.Resilience.Core.Context.AegisContext.Create(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? pipelineName = null) -> Aegis.Resilience.Core.Context.AegisContext!
+static Aegis.Resilience.Core.Context.AegisContextKeys.AreAdditionalAttemptsSuppressed(Aegis.Resilience.Core.Context.AegisContext! context) -> bool
+static Aegis.Resilience.Core.Context.AegisContextPool.Rent(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), string? pipelineName = null) -> Aegis.Resilience.Core.Context.AegisContext!
+static Aegis.Resilience.Core.Context.AegisContextPool.Return(Aegis.Resilience.Core.Context.AegisContext? context) -> void
+static Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.operator !=(Aegis.Resilience.Core.Context.AegisPropertyKey<TValue> left, Aegis.Resilience.Core.Context.AegisPropertyKey<TValue> right) -> bool
+static Aegis.Resilience.Core.Context.AegisPropertyKey<TValue>.operator ==(Aegis.Resilience.Core.Context.AegisPropertyKey<TValue> left, Aegis.Resilience.Core.Context.AegisPropertyKey<TValue> right) -> bool
+static Aegis.Resilience.Core.Pipeline.AegisPipeline.Empty.get -> Aegis.Resilience.Core.Pipeline.AegisPipeline!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddAdaptiveConcurrency(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.RateLimiter.AdaptiveConcurrencyOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddCache(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.Cache.CacheOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddCache(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Cache.CacheOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddCache(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.TimeSpan ttl, System.Action<Aegis.Resilience.Core.Strategies.Cache.CacheOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaos(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaosBehavior(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, double injectionRate, System.Func<Aegis.Resilience.Core.Context.AegisContext!, System.Threading.Tasks.ValueTask>! behavior, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaosFault(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, double injectionRate, System.Func<System.Exception!>! faultGenerator, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaosLatency(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, double injectionRate, System.TimeSpan latency, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaosOutcome(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, double injectionRate, Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator! generator, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddChaosOutcome(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, double injectionRate, System.Func<Aegis.Resilience.Core.Context.AegisContext!, object?>! resultGenerator, System.Action<Aegis.Resilience.Core.Strategies.Chaos.ChaosOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddCircuitBreaker(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddCircuitBreaker(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddConcurrencyLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, int maxConcurrent, System.Action<Aegis.Resilience.Core.Strategies.RateLimiter.ConcurrencyLimiterOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddFallback(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Fallback.FallbackOptions!>! configure) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddHedging(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddPartitionedRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddPartitionedRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.RateLimiter.PartitionedRateLimiterOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, int permitLimit, System.TimeSpan window, System.Action<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRequestCollapser(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRequestCollapser(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Collapser.RequestCollapserOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRetry(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.Retry.RetryOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddRetry(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Retry.RetryOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddSlidingWindowRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddSlidingWindowRateLimiter(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, int permitLimit, System.TimeSpan window, int segmentsPerWindow = 6, System.Action<Aegis.Resilience.Core.Strategies.RateLimiter.SlidingWindowRateLimiterOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddStaleFallback(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Strategies.Fallback.StaleFallbackOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddStandardResilience(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.TimeSpan? totalTimeout = null, int maxConcurrency = 100, int retryAttempts = 3, System.TimeSpan? attemptTimeout = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddTimeout(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions! options) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.AddTimeout(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.TimeSpan timeout, System.Action<Aegis.Resilience.Core.Strategies.Timeout.TimeoutOptions!>? configure = null) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.WithInstanceName(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, string! instanceName) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.WithTelemetry(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.Action<Aegis.Resilience.Core.Telemetry.AegisTelemetryOptions!>! configure) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.AegisPipelineBuilderExtensions.WithTimeProvider(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, System.TimeProvider! timeProvider) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Pipeline.PipelineCompositionExtensions.AddPipeline(this Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder! builder, Aegis.Resilience.Core.Abstractions.IAegisPipeline! pipeline) -> Aegis.Resilience.Core.Abstractions.IAegisPipelineBuilder!
+static Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup.Hit<T>(T value) -> Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>
+static Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup.Miss<T>() -> Aegis.Resilience.Core.Strategies.Cache.AegisCacheLookup<T>
+static Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.operator !=(Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome left, Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome right) -> bool
+static Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.operator ==(Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome left, Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome right) -> bool
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Closed<TResult>(System.TimeSpan breakDuration, Aegis.Resilience.Core.Context.AegisContext! context, in Aegis.Resilience.Core.Abstractions.Outcome<TResult> outcome) -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.HalfOpened(System.TimeSpan breakDuration, Aegis.Resilience.Core.Context.AegisContext! context) -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Manual(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState oldState, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState newState, System.TimeSpan breakDuration, Aegis.Resilience.Core.Context.AegisContext! context) -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext.Opened<TResult>(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState oldState, System.TimeSpan breakDuration, Aegis.Resilience.Core.Context.AegisContext! context, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth health, int halfOpenAttempts, in Aegis.Resilience.Core.Abstractions.Outcome<TResult> outcome) -> Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerEventContext!
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerRules.IsCircuitNeutral(System.Exception! exception, System.Threading.CancellationToken callerToken) -> bool
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerRules.IsControlFlow(System.Exception! exception) -> bool
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitBreakerRules.IsRejection(System.Exception! exception) -> bool
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.operator !=(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth left, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth right) -> bool
+static Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.operator ==(Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth left, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth right) -> bool
+static Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejection.RejectAsync<TResult>(Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry! telemetry, Aegis.Resilience.Core.Context.AegisContext! context, string! strategyName, System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>? onRejected, string! message, System.TimeSpan? retryAfter) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+static Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejection.RejectAsync<TResult>(Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry! telemetry, Aegis.Resilience.Core.Context.AegisContext! context, string! strategyName, System.Func<Aegis.Resilience.Core.Strategies.RateLimiter.RateLimiterRejectedArguments!, System.Threading.Tasks.ValueTask>? onRejected, string! message, System.TimeSpan? retryAfter, System.Func<System.Collections.Generic.IReadOnlyList<System.Collections.Generic.KeyValuePair<string!, object?>>!>? metadata) -> System.Threading.Tasks.ValueTask<Aegis.Resilience.Core.Abstractions.Outcome<TResult>>
+static Aegis.Resilience.Core.Strategies.Retry.RetryStrategy.CalculateDelay(int attempt, Aegis.Resilience.Core.Strategies.Retry.RetryOptions! options, System.TimeSpan? previousDelay = null) -> System.TimeSpan
+static Aegis.Resilience.Core.Telemetry.AegisStrategyTelemetry.SeverityText(Aegis.Resilience.Core.Telemetry.AegisEventSeverity severity) -> string!
+static Aegis.Resilience.Core.Telemetry.AegisTelemetry.RecordCircuitStateChange(string? pipeline, Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitState newState) -> void
+static readonly Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.AttemptNumberKey -> Aegis.Resilience.Core.Context.AegisPropertyKey<int>
+static readonly Aegis.Resilience.Core.Strategies.Hedging.HedgingOptions.MaxAttemptsKey -> Aegis.Resilience.Core.Context.AegisPropertyKey<int>
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.AttemptDuration -> System.Diagnostics.Metrics.Histogram<double>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.CacheHitsTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.CacheMissesTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.CallbackErrorsTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.ChaosInjectionsTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.CircuitStateChangesTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.ExecutionDurationMs -> System.Diagnostics.Metrics.Histogram<double>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.ExecutionsTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.PipelineDuration -> System.Diagnostics.Metrics.Histogram<double>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.RateLimitRejectionsTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.RetriesTotal -> System.Diagnostics.Metrics.Counter<long>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.StrategyEvents -> System.Diagnostics.Metrics.Counter<int>!
+static readonly Aegis.Resilience.Core.Telemetry.AegisTelemetry.TimeoutsTotal -> System.Diagnostics.Metrics.Counter<long>!
+virtual Aegis.Resilience.Core.Abstractions.AegisStrategy.OnTimeProviderChanged() -> void
+virtual Aegis.Resilience.Core.Abstractions.AegisStrategy.Options.get -> object?
+~Aegis.Resilience.Core.Pipeline.Reloadable<T>.Acquire() -> Aegis.Resilience.Core.Pipeline.Reloadable<T>.Lease
+~override Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.Equals(object obj) -> bool
+~override Aegis.Resilience.Core.Strategies.Chaos.ChaosOutcomeGenerator.ChaosOutcome.ToString() -> string
+~override Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.Equals(object obj) -> bool
+~override Aegis.Resilience.Core.Strategies.CircuitBreaker.CircuitHealth.ToString() -> string

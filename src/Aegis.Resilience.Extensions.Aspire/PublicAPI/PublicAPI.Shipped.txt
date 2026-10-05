@@ -1,0 +1,17 @@
+#nullable enable
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsExtensions
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddHealthCheck.get -> bool
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddHealthCheck.set -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddHttpResilience.get -> bool
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddHttpResilience.set -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddMetrics.get -> bool
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddMetrics.set -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddTracing.get -> bool
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AddTracing.set -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.AegisServiceDefaultsOptions() -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.ConfigurationSectionName.get -> string!
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.ConfigurationSectionName.set -> void
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.ConfigureHttp.get -> System.Action<Aegis.Resilience.Extensions.Http.AegisHttpStandardResilienceOptions!>?
+Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions.ConfigureHttp.set -> void
+static Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsExtensions.AddAegisServiceDefaults<TBuilder>(this TBuilder builder, System.Action<Aegis.Resilience.Extensions.Aspire.AegisServiceDefaultsOptions!>? configure = null) -> TBuilder
