@@ -736,7 +736,7 @@ Paket paket özellik → kod → test haritası: [FEATURE-MAP.md](samples/RealWo
 
 | Test | Sonuç |
 |---|---|
-| `tests/Aegis.Tests` | **617/617** × net8.0, net9.0, net10.0. Gerçek Redis (6.2–8, Valkey), SQL Server, Toxiproxy ağ kaosu ve Kestrel dahil; atlanan yok |
+| `tests/Aegis.Tests` | **617 test** × net8.0, net9.0, net10.0. Birim testleri her koşuda; Redis, SQL Server ve Toxiproxy testleri ilgili gerçek servisler sağlandığında çalışır. Tam yayın kapısında atlanan test kabul edilmez. |
 | `tests/Aegis.CompatibilityTests` | **29/29** gerçek .NET Framework 4.8 üzerinde |
 | `tests/Aegis.TortureTests` | Aegis, Polly 8.8 ve Microsoft 10.10 aynı 15 batırma senaryosunda: thread fırtınası, izin sızıntısı, sync-over-async, saat sıçraması, 1 milyon çağrıda bellek… |
 | `tests/Aegis.AotSmokeTest` | Native AOT, çalışma zamanısız imaj, gerçek OpenTelemetry Collector |

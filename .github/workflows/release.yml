@@ -1,0 +1,194 @@
+name: Release gate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish packages to NuGet.org
+        required: false
+        type: boolean
+        default: false
+      version:
+        description: Exact SemVer to publish (required for manual publish)
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+      - name: Build and unit tests
+        shell: pwsh
+        run: dotnet test tests/Aegis.Tests/Aegis.Tests.csproj -c Release --nologo -m:1 -p:BuildInParallel=false
+      - name: .NET Framework compatibility
+        shell: pwsh
+        run: dotnet test tests/Aegis.CompatibilityTests/Aegis.CompatibilityTests.csproj -c Release --nologo -m:1 -p:BuildInParallel=false
+      - name: Torture gate
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force artifacts | Out-Null
+          dotnet run --project tests/Aegis.TortureTests/Aegis.TortureTests.csproj -c Release -- 1 artifacts/torture-report.md
+      - name: Pack
+        shell: pwsh
+        run: ./scripts/pack-and-publish.ps1 -SkipTests -OutputDir artifacts/packages
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: |
+            artifacts/packages/*.nupkg
+            artifacts/packages/*.snupkg
+          if-no-files-found: error
+
+  linux-and-aot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Linux test image
+        run: docker build -f tests/docker/Dockerfile.linux-tests -t aegis-linux-tests .
+      - name: Start Redis
+        run: docker network create aegis-test && docker run -d --name aegis-redis-test --network aegis-test redis:7-alpine
+      - name: Linux tests with Redis
+        run: docker run --rm --network aegis-test -e AEGIS_TEST_REDIS=aegis-redis-test:6379 aegis-linux-tests
+      - name: Build and run Native AOT smoke test
+        run: |
+          docker build -f tests/docker/Dockerfile.aot -t aegis-aot-smoke .
+          docker run -d --name aegis-otel --network aegis-test -e AEGIS_SMOKE_FORWARD_ENDPOINT=http://aegis-aot-smoke-run:5555 -v "$PWD/tests/docker/otel-collector.yaml:/etc/otelcol/config.yaml:ro" otel/opentelemetry-collector:0.131.0 --config /etc/otelcol/config.yaml
+          for attempt in $(seq 1 30); do
+            if docker logs aegis-otel 2>&1 | grep -q 'Everything is ready'; then break; fi
+            if [ "$attempt" -eq 30 ]; then docker logs aegis-otel; exit 1; fi
+            sleep 1
+          done
+          docker run --rm --name aegis-aot-smoke-run --network aegis-test -e AEGIS_SMOKE_COLLECTOR_HOST=aegis-otel aegis-aot-smoke
+
+  real-services:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+      - name: Start integration services
+        run: |
+          docker network create aegis-test
+          docker run -d --name aegis-redis-test --network aegis-test -p 6389:6379 redis:7-alpine
+          docker run -d --name aegis-httpbin --network aegis-test mccutchen/go-httpbin
+          docker run -d --name aegis-toxiproxy --network aegis-test -p 8474:8474 -p 26379:26379 -p 28080:28080 -p 28081:28081 ghcr.io/shopify/toxiproxy:2.12.0
+          docker run -d --name aegis-sql -e ACCEPT_EULA=Y -e 'MSSQL_SA_PASSWORD=Aegis!Test2026' -p 14330:1433 mcr.microsoft.com/mssql/server:2022-latest
+      - name: Wait for SQL Server
+        run: |
+          for attempt in $(seq 1 60); do
+            if docker logs aegis-sql 2>&1 | grep -q 'Recovery is complete'; then exit 0; fi
+            sleep 2
+          done
+          docker logs aegis-sql
+          exit 1
+      - name: Run all tests without skips
+        env:
+          AEGIS_TEST_REDIS: localhost:6389
+          AEGIS_TEST_TOXIPROXY: 127.0.0.1
+          AEGIS_TEST_SQL: Server=localhost,14330;User Id=sa;Password=Aegis!Test2026;TrustServerCertificate=True
+        run: |
+          dotnet test tests/Aegis.Tests/Aegis.Tests.csproj -c Release --nologo -m:1 -p:BuildInParallel=false --results-directory artifacts/test-results --logger "trx;LogFilePrefix=Aegis.Tests"
+          pwsh ./scripts/assert-test-results.ps1 -Path artifacts/test-results -RequireNoSkipped
+
+  packaged-consumer:
+    needs: windows
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/packages
+      - name: Install .NET Framework runtime
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends mono-runtime
+      - name: Start packaged-consumer services
+        run: |
+          docker run -d --name shop-redis -p 6389:6379 redis:7-alpine
+          docker run -d --name shop-sql -e ACCEPT_EULA=Y -e 'MSSQL_SA_PASSWORD=Aegis!Test2026' -p 14330:1433 mcr.microsoft.com/mssql/server:2022-latest
+          for attempt in $(seq 1 60); do
+            if docker logs shop-sql 2>&1 | grep -q 'Recovery is complete'; then exit 0; fi
+            sleep 2
+          done
+          docker logs shop-sql
+          exit 1
+      - name: Test the generated packages in RealWorld
+        env:
+          NUGET_PACKAGES: ${{ github.workspace }}/artifacts/realworld-nuget-cache
+          SHOP_REDIS: localhost:6389
+          SHOP_SQL: Server=localhost,14330;User Id=sa;Password=Aegis!Test2026;TrustServerCertificate=True
+        run: |
+          dotnet test samples/RealWorld/Shop.Tests/Shop.Tests.csproj -c Release --nologo -m:1 -p:BuildInParallel=false --results-directory artifacts/realworld-results --logger "trx;LogFilePrefix=Shop.Tests"
+          pwsh ./scripts/assert-test-results.ps1 -Path artifacts/realworld-results -RequireNoSkipped
+
+  publish:
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish)
+    needs: [windows, linux-and-aot, real-services, packaged-consumer]
+    runs-on: ubuntu-latest
+    environment: nuget.org
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/packages
+      - name: Preflight every package version and NuGet ID
+        shell: pwsh
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+          MANUAL_VERSION: ${{ inputs.version }}
+        run: |
+          $expectedVersion = if ($env:GITHUB_REF_TYPE -eq 'tag') { $env:TAG_NAME -replace '^v', '' } else { $env:MANUAL_VERSION }
+          if ($expectedVersion -notmatch '^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$') {
+            throw "Geçerli bir yayın SemVer sürümü gerekli: '$expectedVersion'"
+          }
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $packages = @(Get-ChildItem artifacts/packages -Filter *.nupkg -File)
+          if ($packages.Count -ne 17) { throw "17 paket bekleniyordu, $($packages.Count) bulundu." }
+          foreach ($package in $packages) {
+            $archive = [System.IO.Compression.ZipFile]::OpenRead($package.FullName)
+            try {
+              $entry = $archive.Entries | Where-Object FullName -like '*.nuspec'
+              $reader = [System.IO.StreamReader]::new($entry.Open())
+              try { [xml]$nuspec = $reader.ReadToEnd() } finally { $reader.Dispose() }
+              $id = [string]$nuspec.package.metadata.id
+              $version = [string]$nuspec.package.metadata.version
+            } finally { $archive.Dispose() }
+            if ($version -ne $expectedVersion) { throw "$id paket sürümü $version, beklenen $expectedVersion." }
+            $indexUri = "https://api.nuget.org/v3-flatcontainer/$($id.ToLowerInvariant())/index.json"
+            $response = Invoke-WebRequest $indexUri -SkipHttpErrorCheck
+            if ($response.StatusCode -eq 200 -and (($response.Content | ConvertFrom-Json).versions -contains $version)) {
+              throw "$id $version NuGet.org üzerinde zaten var; yayın durduruldu."
+            }
+          }
+      - name: Publish packages
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          test -n "$NUGET_API_KEY"
+          for package in artifacts/packages/*.nupkg; do
+            dotnet nuget push "$package" --source https://api.nuget.org/v3/index.json --api-key "$NUGET_API_KEY"
+          done

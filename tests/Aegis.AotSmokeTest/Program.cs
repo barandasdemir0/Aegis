@@ -424,7 +424,9 @@ else
         await c.Request.Body.CopyToAsync(body);
         logBodies.Enqueue(body.ToArray());
         c.Response.ContentType = "application/x-protobuf";
+        c.Response.ContentLength = 0;
         c.Response.StatusCode = 200;
+        await c.Response.CompleteAsync();
     });
     var traceBodies = new System.Collections.Concurrent.ConcurrentQueue<byte[]>();
     logReceiver.MapPost("/v1/traces", async (Microsoft.AspNetCore.Http.HttpContext c) =>
@@ -433,7 +435,9 @@ else
         await c.Request.Body.CopyToAsync(body);
         traceBodies.Enqueue(body.ToArray());
         c.Response.ContentType = "application/x-protobuf";
+        c.Response.ContentLength = 0;
         c.Response.StatusCode = 200;
+        await c.Response.CompleteAsync();
     });
     await logReceiver.StartAsync();
 

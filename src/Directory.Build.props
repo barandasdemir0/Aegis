@@ -20,6 +20,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>Kurumsal seviyede, sıfır-tahsisat (zero-allocation) hedefli, modern .NET 10 ve C# 14 dayanıklılık (resilience) ve arıza toleransı kütüphanesi.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/barandasdemir0/Aegis</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/barandasdemir0/Aegis/blob/main/CHANGELOG.md</PackageReleaseNotes>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <!--
       1591: Tüm public üyelerde XML yorumu zorunlu değildir.

@@ -137,5 +137,5 @@ dotnet test samples/RealWorld/Shop.Tests -c Release
 | Koşu | Sonuç |
 |---|---|
 | RealWorld | 79/79, art arda 3 koşu |
-| Kütüphane `tests/Aegis.Tests` | 617/617 × net8.0, net9.0, net10.0 (Redis, SQL Server, Toxiproxy dahil; atlanan yok) |
+| Kütüphane `tests/Aegis.Tests` | 617 test × net8.0, net9.0, net10.0; Redis, SQL Server ve Toxiproxy senaryoları ilgili gerçek servisler sağlandığında çalışır |
 | Kütüphane `tests/Aegis.CompatibilityTests` | 29/29 (.NET Framework 4.8) |

@@ -138,7 +138,9 @@ public class ToxiproxyChaosTests : IAsyncLifetime
         await AddToxicAsync("http-a", "kes", "limit_data", new { bytes = 20 }, toxicity: 0.3);
         var retries = 0;
         using var pipeline = new AegisPipelineBuilder("rst-http")
-            .AddRetry(o => { o.MaxRetryAttempts = 10; o.Delay = TimeSpan.FromMilliseconds(10); o.OnRetry = _ => { retries++; return default; }; })
+            // Toxiproxy her yeni bağlantı için bağımsız örnekleme yapar. Yüksek deneme tavanı,
+            // testin gerçek bağlantı kesintilerini doğrulamasını korurken rastlantısal tükenmeyi önler.
+            .AddRetry(o => { o.MaxRetryAttempts = 20; o.Delay = TimeSpan.FromMilliseconds(10); o.OnRetry = _ => { retries++; return default; }; })
             .Build();
         // Her istek yeni TCP bağlantısı açsın (Connection: close): %30 olasılık bağlantı başına uygulanır
         using var client = new HttpClient(new AegisResilienceHandler(pipeline) { InnerHandler = new SocketsHttpHandler() });

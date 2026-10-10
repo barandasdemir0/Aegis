@@ -32,12 +32,13 @@ public sealed class LegacyWebFixture : IAsyncLifetime
         var port = FreePort();
         var exe = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Shop.LegacyWeb", "bin", "Release", "net48", "Shop.LegacyWeb.exe"));
         Assert.True(File.Exists(exe), $".NET Framework uygulaması derlenmemiş: {exe}");
-        var process = Process.Start(new ProcessStartInfo(exe, $"{port} {Eu.HttpAddress} {ShopFixture.Redis} {prefix}")
-        {
-            RedirectStandardOutput = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        })!;
+        var processInfo = OperatingSystem.IsWindows()
+            ? new ProcessStartInfo(exe, $"{port} {Eu.HttpAddress} {ShopFixture.Redis} {prefix}")
+            : new ProcessStartInfo("mono", $"\"{exe}\" {port} {Eu.HttpAddress} {ShopFixture.Redis} {prefix}");
+        processInfo.RedirectStandardOutput = true;
+        processInfo.UseShellExecute = false;
+        processInfo.CreateNoWindow = true;
+        var process = Process.Start(processInfo)!;
         _processes.Add(process);
 
         var ready = await process.StandardOutput.ReadLineAsync().WaitAsync(TimeSpan.FromSeconds(30));

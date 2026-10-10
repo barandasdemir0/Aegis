@@ -148,7 +148,7 @@ docker rm -f aegis-otel
 ```
 
 ```bash
-docker run -d --name aegis-otel -p 4317:4317 -p 4318:4318 -p 8889:8889 -v "%cd%\tests\docker\otel-collector.yaml:/etc/otelcol/config.yaml:ro" otel/opentelemetry-collector:0.131.0 --config /etc/otelcol/config.yaml
+docker run -d --name aegis-otel --network aegis-test -p 4317:4317 -p 4318:4318 -p 8889:8889 -e AEGIS_SMOKE_FORWARD_ENDPOINT=http://aegis-aot-smoke-run:5555 -v "%cd%\tests\docker\otel-collector.yaml:/etc/otelcol/config.yaml:ro" otel/opentelemetry-collector:0.131.0 --config /etc/otelcol/config.yaml
 ```
 
 Native AOT imajıyla (Collector'a `host.docker.internal` ile ulaşır; günlük alıcısı için 5555 yayımlanır):
@@ -158,7 +158,7 @@ docker build -f tests/docker/Dockerfile.aot -t aegis-aot-smoke .
 ```
 
 ```bash
-docker run --rm -p 5555:5555 -e AEGIS_SMOKE_COLLECTOR_HOST=host.docker.internal aegis-aot-smoke
+docker run --rm --name aegis-aot-smoke-run --network aegis-test -e AEGIS_SMOKE_COLLECTOR_HOST=aegis-otel aegis-aot-smoke
 ```
 
 Uygulamayı JIT ile yerelde koşmak için: `set AEGIS_SMOKE_COLLECTOR_HOST=127.0.0.1` sonra
@@ -210,8 +210,8 @@ dotnet test tests\Aegis.CompatibilityTests -c Release
 `HandleSqlTransientErrors()` ile kurbanı yeniden çalıştırıp iki işlemi de tamamladığını doğrular.
 
 > **Lisans:** SQL Server kapsayıcısı, Microsoft SQL Server lisans sözleşmesini kabul etmenizi gerektirir
-> (`ACCEPT_EULA=Y`). Bu kabulü siz yapmalısınız; otomatik koşuda bu yüzden yoktur (`AEGIS_TEST_SQL` tanımlı değilse
-> test atlanır). Şifre yalnızca bu yerel test kapsayıcısı içindir.
+> (`ACCEPT_EULA=Y`). Yerel koşuda bu kabul kullanıcıya aittir. GitHub yayın kapısı, depo sahibi tarafından yönetilen
+> iş akışında EULA kabulüyle geçici bir SQL Server konteyneri başlatır. Şifre yalnızca geçici test konteyneri içindir.
 
 ```bash
 docker run -d --name aegis-sql -e ACCEPT_EULA=Y -e "MSSQL_SA_PASSWORD=Aegis!Test2026" -p 14330:1433 mcr.microsoft.com/mssql/server:2022-latest

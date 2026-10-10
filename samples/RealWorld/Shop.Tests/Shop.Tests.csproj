@@ -18,6 +18,12 @@
     <ProjectReference Include="..\Shop.Backends\Shop.Backends.csproj" />
   </ItemGroup>
 
+  <Target Name="BuildLegacyWeb" BeforeTargets="Build">
+    <MSBuild Projects="..\Shop.LegacyWeb\Shop.LegacyWeb.csproj"
+             Targets="Build"
+             Properties="Configuration=$(Configuration)" />
+  </Target>
+
   <ItemGroup>
     <Using Include="Xunit" />
   </ItemGroup>
