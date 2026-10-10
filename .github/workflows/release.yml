@@ -144,7 +144,7 @@ jobs:
           pwsh ./scripts/assert-test-results.ps1 -Path artifacts/realworld-results -RequireNoSkipped
 
   publish:
-    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish)
+    if: github.event_name == 'workflow_dispatch' && inputs.publish
     needs: [windows, linux-and-aot, real-services, packaged-consumer]
     runs-on: ubuntu-latest
     environment: nuget.org
